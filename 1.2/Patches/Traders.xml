@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- ===== Caravan ===== -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TraderKindDef[defName = "Caravan_Outlander_BulkGoods"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_PlasticPellets_TierOne</thingDef>
+				<countRange>350~500</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_NylonRoll</thingDef>
+				<countRange>80~150</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_PlasticPlanks_TierOne</thingDef>
+				<countRange>80~180</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_PolyesterCloth</thingDef>
+				<countRange>200~350</countRange>
+			</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TraderKindDef[defName = "Caravan_Outlander_PirateMerchant"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_DarkOil</thingDef>
+				<countRange>50~100</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_Pronitamine</thingDef>
+				<countRange>50~130</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_Xenotamine</thingDef>
+				<countRange>30~90</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_AntigrainMix</thingDef>
+				<countRange>5~13</countRange>
+			</li>
+		</value>
+	</Operation>
+
+	<!-- ===== Orbital ===== -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TraderKindDef[defName = "Orbital_BulkGoods"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_PlasticPellets_TierOne</thingDef>
+				<countRange>200~300</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_NylonRoll</thingDef>
+				<countRange>100~200</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_PlasticPlanks_TierOne</thingDef>
+				<countRange>100~200</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_PolyesterCloth</thingDef>
+				<countRange>500~800</countRange>
+			</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TraderKindDef[defName = "Orbital_Exotic"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_DarkOil</thingDef>
+				<countRange>80~130</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_Pronitamine</thingDef>
+				<countRange>100~200</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_Xenotamine</thingDef>
+				<countRange>60~130</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_AntigrainMix</thingDef>
+				<countRange>12~27</countRange>
+			</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TraderKindDef[defName = "Caravan_Neolithic_ShamanMerchant"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VMEu_Fossil</thingDef>
+				<countRange>40~80</countRange>
+			</li>
+		</value>
+	</Operation>
+	
+</Patch>

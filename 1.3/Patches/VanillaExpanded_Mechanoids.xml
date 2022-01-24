@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<!-- ##### PATCH EXTRA RECIPES FOR AUTOMATIC FACILITIES ##### -->
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>Vanilla Factions Expanded - Mechanoids</li>
+    </mods>
+	<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		
+			<!-- ===== Edit Descriptions ===== -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName="VFEM_MedicinalCompoundingFactory_NeutroamineInfuser"]/description</xpath>
+				<value>
+					<description>A large industrial vat meant for making the ever-elusive neutroamine precursor product by distilling dark oil really quick. It is also capable of synthetizing pronitamine.\n\n&lt;color=#33d733&gt;Automation Chain:&lt;/color&gt; Part of the Medicinal Compounding Factory (M.C.F.) chain.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge"]/description</xpath>
+				<value>
+					<description>A somewhat high-tech and little understood factory module, capable of combining dark oil and other chemicals into plasteel base. Plasteel refining is a hard process, and the final alloy has to be manually done, as the chemical values tend to vary substantially in terms of stability.\n\n&lt;color=#33d733&gt;Automation Chain:&lt;/color&gt; Part of the Masonry and Metallics Factory (M.M.F.) chain.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName="VFEM_WearablesAndTextileFactory_SynthreadSynthesizer"]/description</xpath>
+				<value>
+					<description>A high-tech machine that is barely understood by even the most intellectually inclined colonies. Complete with a series of meshpresses and plasma needles capable of atomically injecting chemicals to produce synthread.\n\n&lt;color=#33d733&gt;Automation Chain:&lt;/color&gt; Part of the Wearables and Textile Factory (W.T.F.) chain.</description>
+				</value>
+			</li>
+			
+			<!-- ===== CHEMFUEL FROM  DARK OIL ===== -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_MunitionsAndArmamentFactory_ChemfuelClarifier_OilRecipe</defName>
+						<building>VFEM_MunitionsAndArmamentFactory_ChemfuelClarifier</building>
+						<items>
+							<li>VMEu_DarkOil</li>
+						</items>	
+						<amount>
+							<li>20</li>
+						</amount>
+						<result>Chemfuel</result>	
+						<yield>50</yield>	
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>1000</maxTotalOutput>		
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+				</value>
+			</li>
+
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+				<!-- ===== Components ===== -->
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_ElectronicsFabricationFactory_ComponentAssembler_SteelAndPlasticRecipe</defName>
+						<building>VFEM_ElectronicsFabricationFactory_ComponentAssembler</building>
+						<items>
+							<li>Steel</li>
+						</items>	
+						<secondItems>
+							<li>VMEu_PlasticPellets_TierTwo</li>
+						</secondItems>
+						<amount>
+							<li>5</li>
+							<li>7</li>
+						</amount>
+						<result>ComponentIndustrial</result>	
+						<yield>1</yield>
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>100</maxTotalOutput>
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.2</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "VFEM_ElectronicsFabricationFactory_ComponentAssembler"]/comps/li [@Class = "ItemProcessor.CompProperties_ItemProcessor"]/numberOfInputs</xpath>
+				<value>
+					<numberOfInputs>2</numberOfInputs>
+				</value>
+			</li>
+			
+			<!-- Advanced -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+				<!-- ===== Advanced Components ===== -->
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_ElectronicsFabricationFactory_AdvancedAssembler_PolymerRecipe</defName>
+						<building>VFEM_ElectronicsFabricationFactory_AdvancedAssembler</building>
+						<items>
+							<li>Steel</li>
+						</items>	
+						<secondItems>
+							<li>VMEu_PlasticPellets_TierTwo</li>
+						</secondItems>
+						<thirdItems>
+							<li>Gold</li>
+						</thirdItems>
+						<fourthItems>
+							<li>Plasteel</li>
+						</fourthItems>
+						<amount>
+							<li>10</li>
+							<li>15</li>
+							<li>3</li>
+							<li>10</li>
+						</amount>
+						<result>ComponentSpacer</result>	
+						<yield>1</yield>	
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>100</maxTotalOutput>		
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.2</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+				</value>
+			</li>
+			
+			<!-- ===== Change Recipes With EM - Metals Enabled ===== -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Expanded Materials - Metals</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<operations>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName = "VMEu_ElectronicsFabricationFactory_ComponentAssembler_SteelAndPlasticRecipe"]</xpath>
+							<value>
+								<ItemProcessor.CombinationDef>
+									<defName>VMEu_ElectronicsFabricationFactory_ComponentAssembler_SteelAndPlasticRecipe</defName>
+									<building>VFEM_ElectronicsFabricationFactory_ComponentAssembler</building>
+									<items>
+										<li>VMEu_PlasticPellets_TierTwo</li>
+									</items>	
+									<secondItems>
+										<li>VMEu_Germanium</li>
+									</secondItems>
+									<thirdItems>
+										<li>VMEu_Copper</li>
+									</thirdItems>
+									<amount>
+										<li>5</li>
+										<li>3</li>
+										<li>3</li>
+									</amount>
+									<result>ComponentIndustrial</result>	
+									<yield>1</yield>
+									<outputLimitControlled>true</outputLimitControlled>
+									<maxTotalOutput>100</maxTotalOutput>
+									<useQualityIncreasing>false</useQualityIncreasing>
+									<singleTimeIfNotQualityIncreasing>0.2</singleTimeIfNotQualityIncreasing>
+								</ItemProcessor.CombinationDef>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ThingDef [defName = "VFEM_ElectronicsFabricationFactory_ComponentAssembler"]/comps/li [@Class = "ItemProcessor.CompProperties_ItemProcessor"]/numberOfInputs</xpath>
+							<value>
+								<numberOfInputs>3</numberOfInputs>
+							</value>
+						</li>
+						
+						<!-- Advanced -->
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName = "VMEu_ElectronicsFabricationFactory_AdvancedAssembler_PolymerRecipe"]</xpath>
+							<value>
+								<ItemProcessor.CombinationDef>
+									<defName>VMEu_ElectronicsFabricationFactory_AdvancedAssembler_PolymerRecipe</defName>
+									<building>VFEM_ElectronicsFabricationFactory_AdvancedAssembler</building>
+									<items>
+										<li>VMEu_Lithium</li>
+									</items>	
+									<secondItems>
+										<li>VMEu_PlasticPellets_TierTwo</li>
+									</secondItems>
+									<thirdItems>
+										<li>Gold</li>
+									</thirdItems>
+									<fourthItems>
+										<li>Plasteel</li>
+									</fourthItems>
+									<amount>
+										<li>5</li>
+										<li>12</li>
+										<li>3</li>
+										<li>5</li>
+									</amount>
+									<result>ComponentSpacer</result>	
+									<yield>1</yield>	
+									<outputLimitControlled>true</outputLimitControlled>
+									<maxTotalOutput>100</maxTotalOutput>		
+									<useQualityIncreasing>false</useQualityIncreasing>
+									<singleTimeIfNotQualityIncreasing>0.2</singleTimeIfNotQualityIncreasing>
+								</ItemProcessor.CombinationDef>
+							</value>
+						</li>
+					</operations>
+				</match>
+				<nomatch Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<!-- Fix One-Ingredient Recipe -->
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName = "VFEM_ElectronicsFabricationFactory_ComponentAssembler_SteelRecipe"]/amount</xpath>
+							<value>
+								<li>0</li>
+							</value>
+						</li>
+
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName = "VFEM_ElectronicsFabricationFactory_ComponentAssembler_SteelRecipe"]</xpath>
+							<value>
+								<secondItems>
+									<li>Hay</li>
+								</secondItems>
+							</value>
+						</li>
+					</operations>
+				</nomatch>
+			</li>
+			
+			<!-- ##### SHELLS ##### -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+				<!-- ===== High Explosive ===== -->
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_MunitionsAndArmamentFactory_ArtilleryFoundry_Shell_HighExplosive</defName>
+						<building>VFEM_MunitionsAndArmamentFactory_ArtilleryFoundry</building>
+						<items>
+							<li>VMEu_PlasticPellets_TierTwo</li>
+						</items>	
+						<secondItems>
+							<li>Chemfuel</li>
+						</secondItems>
+						<amount>
+							<li>25</li>
+							<li>15</li>
+						</amount>
+						<result>Shell_HighExplosive</result>	
+						<yield>1</yield>		
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>100</maxTotalOutput>
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+				<!-- ===== Incendiary ===== -->
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_MunitionsAndArmamentFactory_ArtilleryFoundry_Shell_Incendiary</defName>
+						<building>VFEM_MunitionsAndArmamentFactory_ArtilleryFoundry</building>
+						<items>
+							<li>VMEu_PlasticPellets_TierTwo</li>
+						</items>	
+						<secondItems>
+							<li>Chemfuel</li>
+						</secondItems>
+						<amount>
+							<li>20</li>
+							<li>20</li>
+						</amount>
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>100</maxTotalOutput>
+						<result>Shell_Incendiary</result>	
+						<yield>1</yield>		
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+				<!-- ===== EMP ===== -->
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_MunitionsAndArmamentFactory_ArtilleryFoundry_Shell_EMP</defName>
+						<building>VFEM_MunitionsAndArmamentFactory_ArtilleryFoundry</building>
+						<items>
+							<li>VMEu_PlasticPellets_TierTwo</li>
+						</items>	
+						<secondItems>
+							<li>ComponentIndustrial</li>
+						</secondItems>
+						<amount>
+							<li>25</li>
+							<li>2</li>
+						</amount>
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>100</maxTotalOutput>
+						<result>Shell_EMP</result>	
+						<yield>1</yield>		
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+				</value>
+			</li>
+			
+			<!-- ===== CHECK FOR EM - METALS ===== -->
+			<!-- <li Class="PatchOperationFindMod">
+				<mods>
+					<li>Expanded Materials - Metals</li>
+					<li>[LITE]Expanded Materials - Metals</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+				<success>Always</success>
+				<operations> -->
+					<!-- ##### SYNTHREAD ##### -->
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/ItemProcessor.CombinationDef [building = "VFEM_WearablesAndTextileFactory_SynthreadSynthesizer"]</xpath>
+					</li>
+				<!-- </operations>
+				</match>
+			</li> -->
+			
+			<!-- ##### NEUTROAMINE INFUSER USED TO AUTOMATICALLY CREATE NEUTROAMINE VARIATIONS ##### -->
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/ItemProcessor.CombinationDef [defName = "VFEM_MedicinalCompoundingFactory_NeutroamineInfuser_Meat"]</xpath>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_MedicinalCompoundingFactory_NeutroamineInfuser_Pronitamine</defName>
+						<building>VFEM_MedicinalCompoundingFactory_NeutroamineInfuser</building>
+						<items>
+							<li>Neutroamine</li>
+						</items>	
+						<amount>
+							<li>50</li>
+						</amount>
+						<result>VMEu_Pronitamine</result>
+						<yield>50</yield>
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>500</maxTotalOutput>
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_MedicinalCompoundingFactory_NeutroamineInfuser_DarkOil</defName>
+						<building>VFEM_MedicinalCompoundingFactory_NeutroamineInfuser</building>
+						<items>
+							<li>VMEu_DarkOil</li>
+						</items>	
+						<amount>
+							<li>10</li>
+						</amount>
+						<result>Neutroamine</result>
+						<yield>50</yield>
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>500</maxTotalOutput>
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+				</value>
+			</li>
+			
+			<!-- Synthetic Medicine -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_MedicinalCompoundingFactory_MedicineGranulator_PolymerMedicine</defName>
+						<building>VFEM_MedicinalCompoundingFactory_MedicineGranulator</building>
+						<items>
+							<li>VMEu_PlasticPellets_TierOne</li>
+						</items>	
+						<secondItems>
+							<li>VMEu_Pronitamine</li>
+						</secondItems>
+						<thirdItems>
+							<li>Cloth</li>
+						</thirdItems>
+						<amount>
+							<li>5</li>
+							<li>1</li>
+							<li>3</li>
+						</amount>
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>100</maxTotalOutput>
+						<result>VMEu_SynthMedicine</result>	
+						<yield>1</yield>		
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+					
+					<!-- Glitterworld Medicine -->
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_MedicinalCompoundingFactory_MedicineGranulator_GlitterworldMedicine</defName>
+						<building>VFEM_MedicinalCompoundingFactory_MedicineGranulator</building>
+						<items>
+							<li>Plasteel</li>
+						</items>	
+						<secondItems>
+							<li>VMEu_Pronitamine</li>
+						</secondItems>
+						<thirdItems>
+							<li>ComponentSpacer</li>
+						</thirdItems>
+						<amount>
+							<li>15</li>
+							<li>15</li>
+							<li>5</li>
+						</amount>
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>100</maxTotalOutput>
+						<result>MedicineUltratech</result>	
+						<yield>1</yield>		
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Expanded Materials - Metals</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+				<success>Always</success>
+					<operations>
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName="VMEu_MedicinalCompoundingFactory_MedicineGranulator_GlitterworldMedicine"]</xpath>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs</xpath>
+							<value>
+								<ItemProcessor.CombinationDef>
+									<defName>VMEu_MedicinalCompoundingFactory_MedicineGranulator_GlitterworldMedicine_EM</defName>
+									<building>VFEM_MedicinalCompoundingFactory_MedicineGranulator</building>
+									<items>
+										<li>VMEu_CarbonFiber</li>
+									</items>	
+									<secondItems>
+										<li>VMEu_Therminamine</li>
+									</secondItems>
+									<thirdItems>
+										<li>ComponentSpacer</li>
+									</thirdItems>
+									<amount>
+										<li>15</li>
+										<li>15</li>
+										<li>3</li>
+									</amount>
+									<outputLimitControlled>true</outputLimitControlled>
+									<maxTotalOutput>100</maxTotalOutput>
+									<result>MedicineUltratech</result>	
+									<yield>1</yield>		
+									<useQualityIncreasing>false</useQualityIncreasing>
+									<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+								</ItemProcessor.CombinationDef>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+				
+			<!-- ===== PLASTEEL PRODUCTION ===== -->
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/ItemProcessor.CombinationDef [defName = "VFEM_MasonryAndMetallicsFactory_PlasteelForge_Sandstone"]</xpath>
+			</li>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Expanded Materials - Metals</li>
+					<li>[LITE]Expanded Materials - Metals</li>
+				</mods>
+				<nomatch Class="PatchOperationSequence">
+				<success>Always</success>
+					<operations> 
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge_Limestone"]</xpath>
+						</li>
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge_Slate"]</xpath>
+						</li>
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge_Granite"]</xpath>
+						</li>
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge_Marble"]</xpath>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs</xpath>
+							<value>
+								<ItemProcessor.CombinationDef>
+									<defName>VMEu_MasonryAndMetallicsFactory_PlasteelForge_Standard</defName>
+									<building>VFEM_MasonryAndMetallicsFactory_PlasteelForge</building>
+									<items>
+										<li>Neutroamine</li>
+									</items>	
+									<secondItems>
+										<li>VMEu_Xenotamine</li>
+									</secondItems>
+									<thirdItems>
+										<li>VMEu_DarkOil</li>
+									</thirdItems>
+									<outputLimitControlled>true</outputLimitControlled>
+									<maxTotalOutput>300</maxTotalOutput>
+									<amount>
+										<li>50</li>
+										<li>30</li>
+										<li>20</li>
+									</amount>
+									<result>Plasteel</result>	
+									<yield>30</yield>		
+									<useQualityIncreasing>false</useQualityIncreasing>
+									<singleTimeIfNotQualityIncreasing>0.2</singleTimeIfNotQualityIncreasing>
+								</ItemProcessor.CombinationDef>
+							</value>
+						</li>
+						</operations>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Expanded Materials - Metals</li>
+					<li>[LITE]Expanded Materials - Metals</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+				<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs</xpath>
+							<value>
+								<!-- === Plasteel Base === -->
+								<ItemProcessor.CombinationDef>
+									<defName>VMEu_MasonryAndMetallicsFactory_PlasteelForge_EM</defName>
+									<building>VFEM_MasonryAndMetallicsFactory_PlasteelForge</building>
+									<items>
+										<li>VMEu_Therminamine</li>
+									</items>	
+									<secondItems>
+										<li>VMEu_Boraetamine</li>
+									</secondItems>
+									<thirdItems>
+										<li>VMEu_DarkOil</li>
+									</thirdItems>
+									<outputLimitControlled>true</outputLimitControlled>
+									<maxTotalOutput>300</maxTotalOutput>
+									<amount>
+										<li>30</li>
+										<li>30</li>
+										<li>10</li>
+									</amount>
+									<result>VMEu_PlasteelBase</result>	
+									<yield>30</yield>		
+									<useQualityIncreasing>false</useQualityIncreasing>
+									<singleTimeIfNotQualityIncreasing>0.2</singleTimeIfNotQualityIncreasing>
+								</ItemProcessor.CombinationDef>
+								
+								<!-- === Carbon Fiber === -->
+								<ItemProcessor.CombinationDef>
+									<defName>VMEu_MasonryAndMetallicsFactory_PlasteelForge_CarbonFiber</defName>
+									<building>VFEM_MasonryAndMetallicsFactory_PlasteelForge</building>
+									<items>
+										<li>VMEu_Therminamine</li>
+									</items>	
+									<secondItems>
+										<li>VMEu_Actinamine</li>
+									</secondItems>
+									<thirdItems>
+										<li>VMEu_Coal</li>
+									</thirdItems>
+									<outputLimitControlled>true</outputLimitControlled>
+									<maxTotalOutput>300</maxTotalOutput>
+									<amount>
+										<li>10</li>
+										<li>20</li>
+										<li>50</li>
+									</amount>
+									<result>VMEu_CarbonFiber</result>	
+									<yield>35</yield>		
+									<useQualityIncreasing>false</useQualityIncreasing>
+									<singleTimeIfNotQualityIncreasing>0.2</singleTimeIfNotQualityIncreasing>
+								</ItemProcessor.CombinationDef>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+			
+			<!-- ===== REMOVE PLASTEEL RECIPES WITH EM - METALS LITE ===== (My god, these patches took me many headaches) -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>[LITE]Expanded Materials - Metals</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+				<success>Always</success>
+					<operations>
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge_Limestone"]</xpath>
+						</li>
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge_Slate"]</xpath>
+						</li>
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge_Granite"]</xpath>
+						</li>
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge_Marble"]</xpath>
+						</li>
+						<!-- <li Class="PatchOperationRemove">
+							<xpath>/Defs/ItemProcessor.CombinationDef [defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge_Sandstone"]</xpath>
+						</li> -->
+					</operations>
+				</match>
+			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<!-- === Plastic Pellets Tier One === -->
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_AutomationManufacture_Pellets_TierOne</defName>
+						<building>VFEM_VersatileAssembler</building>
+						<items>
+							<li>VMEu_DarkOil</li>
+						</items>	
+						<secondItems>
+							<li>Neutroamine</li>
+						</secondItems>
+						<amount>
+							<li>20</li>
+							<li>50</li>
+						</amount>
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>100</maxTotalOutput>
+						<result>VMEu_PlasticPellets_TierOne</result>	
+						<yield>75</yield>		
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+					
+					<!-- === Plastic Pellets Tier Two === -->
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_AutomationManufacture_Pellets_TierTwo</defName>
+						<building>VFEM_VersatileAssembler</building>
+						<items>
+							<li>VMEu_DarkOil</li>
+						</items>	
+						<secondItems>
+							<li>VMEu_Pronitamine</li>
+						</secondItems>
+						<amount>
+							<li>20</li>
+							<li>50</li>
+						</amount>
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>100</maxTotalOutput>
+						<result>VMEu_PlasticPellets_TierTwo</result>	
+						<yield>75</yield>		
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+					
+					<!-- === Synthread === -->
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_AutomationManufacture_Synthread</defName>
+						<building>VFEM_WearablesAndTextileFactory_SynthreadSynthesizer</building>
+						<items>
+							<li>Plasteel</li>
+						</items>	
+						<secondItems>
+							<li>VMEu_Xenotamine</li>
+						</secondItems>
+						<amount>
+							<li>20</li>
+							<li>30</li>
+						</amount>
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>100</maxTotalOutput>
+						<result>Synthread</result>	
+						<yield>35</yield>		
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+					
+					<!-- === Hyperweave === -->
+					<ItemProcessor.CombinationDef>
+						<defName>VMEu_AutomationManufacture_Hyperweave</defName>
+						<building>VFEM_VersatileAssembler</building>
+						<items>
+							<li>Plasteel</li>
+						</items>	
+						<secondItems>
+							<li>VMEu_Xenotamine</li>
+						</secondItems>
+						<thirdItems>
+							<li>VMEu_PlasticPellets_TierTwo</li>
+						</thirdItems>
+						<amount>
+							<li>35</li>
+							<li>30</li>
+							<li>50</li>
+						</amount>
+						<outputLimitControlled>true</outputLimitControlled>
+						<maxTotalOutput>100</maxTotalOutput>
+						<result>Hyperweave</result>	
+						<yield>35</yield>		
+						<useQualityIncreasing>false</useQualityIncreasing>
+						<singleTimeIfNotQualityIncreasing>0.1</singleTimeIfNotQualityIncreasing>
+					</ItemProcessor.CombinationDef>
+					
+				</value>
+			</li>
+				
+		</operations>
+	</match>
+</Operation>
+
+</Patch>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<VMEu_InsertPlasticDesc>Liquid plastic to insert</VMEu_InsertPlasticDesc>
+	<VMEu_StartInsertionPlastic>Bring Liquid Plastic</VMEu_StartInsertionPlastic>
+	<VMEu_StartInsertionPlasticDesc>Bring a liquid plastic to the processor to start processing.</VMEu_StartInsertionPlasticDesc>
+	<VMEu_CancelBringingPlastic>Cancel Bringing Liquid Plastic</VMEu_CancelBringingPlastic>
+	<VMEu_CancelBringingPlasticDesc>Cancel bringing liquid plastic to the processor.</VMEu_CancelBringingPlasticDesc>
+	
+	
+	<VMEu_PondHasOil>This oil pond has {0} units of dark oil left</VMEu_PondHasOil>
+	<VMEu_PondNoOil>This oil pond is depleted</VMEu_PondNoOil>
+	<VMEu_MustPlaceOnOilPond>The oil extractor needs to be built on top of a oil pond</VMEu_MustPlaceOnOilPond>
+	<VMEu_ExtractorProducing>The extractor will produce {0} units of dark oil in {1}</VMEu_ExtractorProducing>
+
+</LanguageData>

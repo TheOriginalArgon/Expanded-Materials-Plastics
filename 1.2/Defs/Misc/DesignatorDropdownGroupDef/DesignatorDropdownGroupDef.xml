@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DesignatorDropdownGroupDef>
+    <defName>VMEu_PlasticMosaicDropdownMenu</defName>
+    <label>plastic mosaic</label>
+  </DesignatorDropdownGroupDef>
+  
+  <DesignatorDropdownGroupDef>
+    <defName>VMEu_PlasticTileDropdownMenu</defName>
+    <label>plastic tile</label>
+  </DesignatorDropdownGroupDef>
+  
+  <DesignatorDropdownGroupDef>
+    <defName>VMEu_PlasticBrickWallDropdownMenu</defName>
+    <label>plastic bricks wall</label>
+  </DesignatorDropdownGroupDef>
+  
+  <DesignatorDropdownGroupDef>
+    <defName>VMEu_PlasticBrickTileDropdownMenu</defName>
+    <label>plastic brick tile</label>
+  </DesignatorDropdownGroupDef>
+
+
+</Defs>

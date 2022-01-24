@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<!-- EM - Metals LITE -->
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>[LITE]Expanded Materials - Metals</li>
+    </mods>
+	<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<!-- ##### TRADERS ##### -->
+			<!-- === Caravan === -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/TraderKindDef[defName = "Orbital_Exotic"]/stockGenerators</xpath>
+				<value>
+					<li Class="StockGenerator_SingleDef">
+						<thingDef>VMEu_Actinamine</thingDef>
+						<countRange>30~110</countRange>
+					</li>
+					<li Class="StockGenerator_SingleDef">
+						<thingDef>VMEu_Therminamine</thingDef>
+						<countRange>10~90</countRange>
+					</li>
+					<li Class="StockGenerator_SingleDef">
+						<thingDef>VMEu_Boraetamine</thingDef>
+						<countRange>25~50</countRange>
+					</li>
+				</value>
+			</li>
+			<!-- === Orbital === -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/TraderKindDef[defName = "Orbital_Exotic"]/stockGenerators</xpath>
+				<value>
+					<li Class="StockGenerator_SingleDef">
+						<thingDef>VMEu_Actinamine</thingDef>
+						<countRange>150~200</countRange>
+					</li>
+					<li Class="StockGenerator_SingleDef">
+						<thingDef>VMEu_Therminamine</thingDef>
+						<countRange>100~150</countRange>
+					</li>
+					<li Class="StockGenerator_SingleDef">
+						<thingDef>VMEu_Boraetamine</thingDef>
+						<countRange>50~100</countRange>
+					</li>
+				</value>
+			</li>
+			<!-- ##### VANILLA RECIPES ##### -->
+			<!-- Plasteel -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ThingDef ParentName="ResourceBase">
+						<defName>VMEu_PlasteelBase</defName>
+						<label>plasteel base</label>
+						<description>A solid and strong synthetic base that serves the sole purpose of allowing the alloy of plasteel, by mixing this synthetic base with steel at very high temeratures.</description>
+						<graphicData>
+						  <texPath>Things/Item/Resource/VMEu_PlasteelBase</texPath>
+						  <graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<stackLimit>75</stackLimit>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<statBases>
+						  <MarketValue>9</MarketValue>
+						  <Mass>0.15</Mass>
+						</statBases>
+						<thingCategories>
+						  <li>Manufactured</li>
+						</thingCategories>
+					  </ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<RecipeDef>
+						<defName>VMEu_WeavePlasteelBase</defName>
+						<label>synthetize plasteel base</label>
+						<description>Synthetize a strong dark oil-based material that serves the purpose of alloying plasteel, the most high-technological materials among the rimworlds.</description>
+						<jobString>Weaving plasteel.</jobString>
+						<effectWorking>Smith</effectWorking>
+						<soundWorking>Recipe_Machining</soundWorking>
+						<workAmount>4000</workAmount>
+						<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+						<recipeUsers>
+							<li>VMEu_SynthWeaver</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_Therminamine</li>
+							  </thingDefs>
+							</filter>
+							<count>15</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_Boraetamine</li>
+							  </thingDefs>
+							</filter>
+							<count>10</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_DarkOil</li>
+							  </thingDefs>
+							</filter>
+							<count>5</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+						  <thingDefs>
+							<li>VMEu_Therminamine</li>
+							<li>VMEu_Boraetamine</li>
+							<li>VMEu_DarkOil</li>
+						  </thingDefs>
+						</fixedIngredientFilter>
+						<products>
+						  <VMEu_PlasteelBase>20</VMEu_PlasteelBase>
+						</products>
+						<researchPrerequisite>VMEu_PlasteelWeaving</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<RecipeDef>
+						<defName>VMEu_AlloyPlasteel</defName>
+						<label>alloy plasteel</label>
+						<description>Alloy plasteel, an ultra-technological compound polymer material mostly used for the most refined and highest quality implementations around the rimworlds.</description>
+						<jobString>Alloying plasteel.</jobString>
+						<effectWorking>Smelt</effectWorking>
+						<soundWorking>Recipe_Smelt</soundWorking>
+						<workAmount>6000</workAmount>
+						<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+						<recipeUsers>
+							<li>VMEu_ElectricMetalSmelter</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_PlasteelBase</li>
+							  </thingDefs>
+							</filter>
+							<count>25</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>Steel</li>
+							  </thingDefs>
+							</filter>
+							<count>20</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+						  <thingDefs>
+							<li>VMEu_PlasteelBase</li>
+							<li>Steel</li>
+						  </thingDefs>
+						</fixedIngredientFilter>
+						<products>
+						  <Plasteel>50</Plasteel>
+						</products>
+						<researchPrerequisite>VMEu_PlasteelWeaving</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!-- ##### ADD NEW MATERIALS ##### -->
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<!-- Plastic Bricks -->
+					  <ThingDef ParentName="ResourceBase">
+						<defName>VMEu_PlasticBricks</defName>
+						<label>plastic bricks</label>
+						<description>Bricks made with stone dust and plastic, a very particular material for building cheap yet strong long-lasting structures.\n\nHowever, this type of bricks need a very high and constant temperature to be made.</description>
+						<graphicData>
+						  <texPath>Things/Item/Resource/VMEu_PlasticBricks</texPath>
+						  <graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<soundInteract>Stone_Drop</soundInteract>
+						<soundDrop>Stone_Drop</soundDrop>
+						<useHitPoints>false</useHitPoints>
+						<tradeability>Buyable</tradeability>
+						<statBases>
+						  <Mass>0.68</Mass>
+						  <MaxHitPoints>200</MaxHitPoints>
+						  <MarketValue>0.7</MarketValue>
+						  <Beauty>-12</Beauty>
+						</statBases>
+						<stuffProps>
+							<appearance>Bricks</appearance>
+						</stuffProps>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+					  </ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<RecipeDef>
+						<defName>VMEu_MakePlasticBricks</defName>
+						<label>make plastic bricks</label>
+						<description>Smelt plastic and grounded rock at high temperatures in order to obtain hard, light and cheap plastic bricks.</description>
+						<jobString>Making plastic bricks.</jobString>
+						<effectWorking>Smelt</effectWorking>
+						<soundWorking>Recipe_Smelt</soundWorking>
+						<workAmount>5000</workAmount>
+						<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+						<recipeUsers>
+							<li>VMEu_MetalSmelter</li>
+							<li>VMEu_ElectricMetalSmelter</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_PlasticPellets_TierOne</li>
+							  </thingDefs>
+							</filter>
+							<count>20</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_RockPowder</li>
+							  </thingDefs>
+							</filter>
+							<count>20</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+						  <thingDefs>
+							<li>VMEu_PlasticPellets_TierOne</li>
+							<li>VMEu_RockPowder</li>
+						  </thingDefs>
+						</fixedIngredientFilter>
+						<products>
+						  <VMEu_PlasticBricks>40</VMEu_PlasticBricks>
+						</products>
+						<researchPrerequisite>VMEu_PlasticManufacture</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!-- ===== BULK ===== -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<RecipeDef>
+						<defName>VMEu_MakePlasticBricks_Bulk</defName>
+						<label>make bulk plastic bricks</label>
+						<description>Smelt plastic and grounded rock at high temperatures in order to obtain hard, light and cheap plastic bricks.</description>
+						<jobString>Making plastic bricks.</jobString>
+						<effectWorking>Smelt</effectWorking>
+						<soundWorking>Recipe_Smelt</soundWorking>
+						<workAmount>12000</workAmount>
+						<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+						<recipeUsers>
+							<li>VMEu_ElectricMetalSmelter</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_PlasticPellets_TierOne</li>
+							  </thingDefs>
+							</filter>
+							<count>60</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_RockPowder</li>
+							  </thingDefs>
+							</filter>
+							<count>60</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+						  <thingDefs>
+							<li>VMEu_PlasticPellets_TierOne</li>
+							<li>VMEu_RockPowder</li>
+						  </thingDefs>
+						</fixedIngredientFilter>
+						<products>
+						  <VMEu_PlasticBricks>120</VMEu_PlasticBricks>
+						</products>
+						<researchPrerequisite>VMEu_PlasticManufacture</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<!-- Carbon Fiber -->
+					<ThingDef ParentName="ResourceBase">
+						<defName>VMEu_CarbonFiber</defName>
+						<label>carbon fiber</label>
+						<description>An advanced structural synthetic fiber made mostly from carbon, used widely in industry to replace expensive materials due to its flexibility.\n\nIt has mechanical properties similar to steel, and its weight is almost the same as wood or plastic.</description>
+						<graphicData>
+						  <texPath>Things/Item/Resource/VMEu_CarbonFiber</texPath>
+						  <graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<soundInteract>Metal_Drop</soundInteract>
+						<soundDrop>Metal_Drop</soundDrop>
+						<useHitPoints>false</useHitPoints>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<statBases>
+						  <MarketValue>9</MarketValue>
+						  <Mass>0.2</Mass>
+						  <StuffPower_Armor_Sharp>1.05</StuffPower_Armor_Sharp>
+						  <StuffPower_Armor_Blunt>0.65</StuffPower_Armor_Blunt>
+						  <StuffPower_Armor_Heat>0.65</StuffPower_Armor_Heat>
+						  <StuffPower_Insulation_Cold>4</StuffPower_Insulation_Cold>
+						  <StuffPower_Insulation_Heat>1</StuffPower_Insulation_Heat>
+						  <SharpDamageMultiplier>1.12</SharpDamageMultiplier>
+						  <BluntDamageMultiplier>1</BluntDamageMultiplier>
+						</statBases>
+						<thingCategories>
+						  <li>ResourcesRaw</li>
+						</thingCategories>
+						<burnableByRecipe>false</burnableByRecipe>
+						<smeltable>true</smeltable>
+						<stuffProps>
+						  <categories>
+							<li>VMEu_PlasticStuffCategory</li>
+						  </categories>
+						  <commonality>0.048</commonality>
+						  <constructEffect>ConstructMetal</constructEffect>
+						  <color>(71, 71, 71)</color>
+						  <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+						  <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+						  <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+						  <statFactors>
+							<MaxHitPoints>2.2</MaxHitPoints>
+							<Beauty>1</Beauty>
+							<Flammability>0</Flammability>
+							<WorkToMake>2.1</WorkToMake>
+							<WorkToBuild>2</WorkToBuild>
+							<MeleeWeapon_CooldownMultiplier>0.72</MeleeWeapon_CooldownMultiplier>
+						  </statFactors>
+						</stuffProps>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+					  </ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<RecipeDef>
+						<defName>VMEu_MakeCarbonFiber</defName>
+						<label>weave carbon fiber</label>
+						<description>Weave thin fibers of carbon-based polymer into a tough, versatile material called carbon fiber.</description>
+						<jobString>Weaving carbon fiber.</jobString>
+						<effectWorking>Smelt</effectWorking>
+						<soundWorking>Recipe_Smelt</soundWorking>
+						<workAmount>2000</workAmount>
+						<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+						<recipeUsers>
+							<li>VMEu_SynthWeaver</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_Therminamine</li>
+							  </thingDefs>
+							</filter>
+							<count>10</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_Actinamine</li>
+							  </thingDefs>
+							</filter>
+							<count>15</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_Coal</li>
+							  </thingDefs>
+							</filter>
+							<count>50</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+						  <thingDefs>
+							<li>VMEu_Therminamine</li>
+							<li>VMEu_Actinamine</li>
+							<li>VMEu_Coal</li>
+						  </thingDefs>
+						</fixedIngredientFilter>
+						<products>
+						  <VMEu_CarbonFiber>35</VMEu_CarbonFiber>
+						</products>
+						<researchPrerequisite>VMEu_PolymerMaterials</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!-- ##### ADD NEW CHEMICALS ##### -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					
+					<!-- Boraetamine -->
+					<ThingDef ParentName="ResourceBase">
+						<defName>VMEu_Boraetamine</defName>
+						<label>børætamine</label>
+						<description>An unstable, flamable and powerful version of neutroamine. This product is known for having been discovered by a nordic scientist years ago, back in old earth. At that time, it was nearly impossible to get it done, but with advanced technologies, this product is now makeable.\n\nBørætamine is a syntetic variation used maily to add toughness to materials, but it has plenty of other uses, which make it wealthy and expensive. While it is useless on its own, many materials require børætamine as an ingredient.\n\nDespite being chemically a variation of neutroamine, this complex chemical is created using dark oil directly.</description>
+						<tickerType>Normal</tickerType>
+						<graphicData>
+						  <texPath>Things/Item/Resource/VMEu_Boraetamine</texPath>
+						  <graphicClass>Graphic_StackCount</graphicClass>
+						  <drawSize>0.90</drawSize>
+						</graphicData>
+						<stackLimit>150</stackLimit>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<statBases>
+						  <MaxHitPoints>50</MaxHitPoints>
+						  <MarketValue>14</MarketValue>
+						  <Mass>0.02</Mass>
+						  <Flammability>2</Flammability>
+						  <DeteriorationRate>1.2</DeteriorationRate>
+						</statBases>
+						<comps>
+						  <li Class="CompProperties_Explosive">
+							<explosiveRadius>0.3</explosiveRadius>
+							<explosiveDamageType>Flame</explosiveDamageType>
+							<explosiveExpandPerStackcount>0.037</explosiveExpandPerStackcount>
+							<startWickOnDamageTaken>
+							  <li>Flame</li>
+							</startWickOnDamageTaken>
+							<startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+							<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+							<preExplosionSpawnChance>1</preExplosionSpawnChance>
+							<wickTicks>50~100</wickTicks>
+						  </li>
+						</comps>
+						<thingCategories>
+						  <li>VMEu_ChemicalsThingCategory</li>
+						</thingCategories>
+					  </ThingDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<!-- Actinamine -->
+					<ThingDef ParentName="ResourceBase">
+						<defName>VMEu_Actinamine</defName>
+						<label>actinamine</label>
+						<description>A synthetic version of neutroamine with the third isotope chemically activated with positive unstable chargues. While it is useless on its own, many materials require actinamine as an ingredient.</description>
+						<graphicData>
+						  <texPath>Things/Item/Resource/VMEu_Actinamine</texPath>
+						  <graphicClass>Graphic_StackCount</graphicClass>
+						  <drawSize>0.90</drawSize>
+						</graphicData>
+						<stackLimit>150</stackLimit>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<statBases>
+						  <MaxHitPoints>50</MaxHitPoints>
+						  <MarketValue>7</MarketValue>
+						  <Mass>0.02</Mass>
+						  <Flammability>0.9</Flammability>
+						  <DeteriorationRate>1.2</DeteriorationRate>
+						</statBases>
+						<thingCategories>
+						  <li>Manufactured</li>
+						</thingCategories>
+					  </ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<!-- Therminamine -->
+					<ThingDef ParentName="ResourceBase">
+						<defName>VMEu_Therminamine</defName>
+						<label>therminamine</label>
+						<description>A synthetic version highly concentrated, electrically positive and alcaline. This chemical is used to synthetize complex polymer materials.\n\nThe time required to obtain this neutroamine variation is what makes it so wealthy.</description>
+						<graphicData>
+						  <texPath>Things/Item/Resource/VMEu_Therminamine</texPath>
+						  <graphicClass>Graphic_StackCount</graphicClass>
+						  <drawSize>0.90</drawSize>
+						</graphicData>
+						<stackLimit>150</stackLimit>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<statBases>
+						  <MaxHitPoints>50</MaxHitPoints>
+						  <MarketValue>12</MarketValue>
+						  <Mass>0.02</Mass>
+						  <Flammability>0.9</Flammability>
+						  <DeteriorationRate>1.2</DeteriorationRate>
+						</statBases>
+						<thingCategories>
+						  <li>Manufactured</li>
+						</thingCategories>
+					  </ThingDef>
+				</value>
+			</li>
+			
+			<!-- ##### ADD NEW STRUCTURES ##### -->
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ThingDef Name="PlasticBricksWallBase" ParentName="BuildingBase" Abstract="True">
+						<description>An impassable wall. Capable of holding up a roof.</description>
+						<thingClass>Building</thingClass>
+						<category>Building</category>
+					  <graphicData>
+						<texPath>Things/Building/Linked/Wall/Wall_Atlas_Bricks</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						  <linkType>CornerFiller</linkType>
+						  <linkFlags>
+							<li>Wall</li>
+							<li>Rock</li>
+						  </linkFlags>
+						  <damageData>
+							<cornerTL>Damage/Corner</cornerTL>
+							<cornerTR>Damage/Corner</cornerTR>
+							<cornerBL>Damage/Corner</cornerBL>
+							<cornerBR>Damage/Corner</cornerBR>
+							<edgeTop>Damage/Edge</edgeTop>
+							<edgeBot>Damage/Edge</edgeBot>
+							<edgeLeft>Damage/Edge</edgeLeft>
+							<edgeRight>Damage/Edge</edgeRight>
+						  </damageData>
+					  </graphicData>
+					  <uiIconPath>Things/Building/Linked/WallBricks_MenuIcon</uiIconPath>
+						<researchPrerequisites><li>VMEu_PlasticManufacture</li></researchPrerequisites>
+						<costList>
+						  <VMEu_PlasticBricks>5</VMEu_PlasticBricks>
+						</costList>
+						<statBases>
+						  <MaxHitPoints>500</MaxHitPoints>
+						  <WorkToBuild>500</WorkToBuild>
+						  <Flammability>0.05</Flammability>
+						</statBases>
+						<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>Impassable</passability>
+						<blockWind>true</blockWind>
+						<castEdgeShadows>true</castEdgeShadows>
+						<fillPercent>1</fillPercent>
+						<coversFloor>true</coversFloor>
+						<placingDraggableDimensions>1</placingDraggableDimensions>
+						<tickerType>Never</tickerType>
+						<rotatable>false</rotatable>
+						<selectable>true</selectable>
+						<neverMultiSelect>true</neverMultiSelect>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<holdsRoof>true</holdsRoof>
+						<designationCategory>Structure</designationCategory>
+						<staticSunShadowHeight>1.0</staticSunShadowHeight>
+						<blockLight>true</blockLight>
+						<canOverlapZones>false</canOverlapZones>
+						<building>
+						  <isInert>true</isInert>
+						  <ai_chillDestination>false</ai_chillDestination>
+						  <blueprintGraphicData>
+							<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+						  </blueprintGraphicData>
+						</building>
+						
+						<designatorDropdown>VMEu_PlasticBrickWallDropdownMenu</designatorDropdown>
+					  </ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					  <ThingDef ParentName="PlasticBricksWallBase">
+						<defName>VMEu_Wall_BricksBlue</defName>
+						<label>Blue plastic bricks wall</label>
+						<graphicData><color>(97, 113, 140)</color></graphicData>  
+					  </ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ThingDef ParentName="PlasticBricksWallBase">
+						<defName>VMEu_Wall_BricksRed</defName>
+						<label>Red plastic bricks wall</label>
+						<graphicData><color>(117, 73, 74)</color></graphicData>  
+					  </ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ThingDef ParentName="PlasticBricksWallBase">
+						<defName>VMEu_Wall_BricksWhite</defName>
+						<label>White plastic bricks wall</label>
+						<graphicData><color>(207, 207, 207)</color></graphicData>  
+					  </ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ThingDef ParentName="PlasticBricksWallBase">
+						<defName>VMEu_Wall_BricksBlack</defName>
+						<label>Black plastic bricks wall</label>
+						<graphicData><color>(82, 82, 82)</color></graphicData>  
+					  </ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ThingDef ParentName="PlasticBricksWallBase">
+						<defName>VMEu_Wall_BricksBrown</defName>
+						<label>Brown plastic bricks wall</label>
+						<graphicData><color>(115, 80, 15)</color></graphicData>  
+					  </ThingDef>
+				</value>
+			</li>
+			
+		</operations>
+	</match>
+</Operation>
+
+</Patch>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>Expanded Materials Add-on - Ammunition Module</li>
+    </mods>
+	<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+				<value>
+				
+					<!-- === Industrial Light Ammo === -->
+					<RecipeDef>
+						<defName>VMEu_MakeIndustrialAmmo_Plastic</defName>
+						<label>make industrial polymer turret ammunition</label>
+						<description>Manufacture cheap industrial class ammunition for military class turrets using polymer materials, which are perfectly capable of replacing lead.</description>
+						<jobString>Manufacturing ammunition.</jobString>
+						<effectWorking>Smith</effectWorking>
+						<soundWorking>Recipe_Machining</soundWorking>
+						<workAmount>500</workAmount>
+						<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+						<recipeUsers>
+							<li>TableMachining</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_Bronze</li>
+							  </thingDefs>
+							</filter>
+							<count>1</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>Steel</li>
+							  </thingDefs>
+							</filter>
+							<count>1</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_PlasticPellets_TierTwo</li>
+							  </thingDefs>
+							</filter>
+							<count>5</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+						  <thingDefs>
+							<li>VMEu_Bronze</li>
+							<li>Steel</li>
+							<li>VMEu_PlasticPellets_TierTwo</li>
+						  </thingDefs>
+						</fixedIngredientFilter>
+						<products>
+						  <VMEu_IndustrialAmmo>25</VMEu_IndustrialAmmo>
+						</products>
+						<researchPrerequisite>VMEu_PlasticIndustry</researchPrerequisite>
+					</RecipeDef>
+					
+					<!-- === Industrial Heavy Ammo === -->
+					<RecipeDef>
+						<defName>VMEu_MakeHeavyAmmo_Plastic</defName>
+						<label>make heavy polymer turret ammunition</label>
+						<description>Manufacture cheap heavy industrial class ammunition for advanced military class turrets using polymer materials, which are perfectly capable of replacing lead..</description>
+						<jobString>Manufacturing ammunition.</jobString>
+						<effectWorking>Smith</effectWorking>
+						<soundWorking>Recipe_Machining</soundWorking>
+						<workAmount>750</workAmount>
+						<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+						<recipeUsers>
+							<li>TableMachining</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_Bronze</li>
+							  </thingDefs>
+							</filter>
+							<count>5</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>Steel</li>
+							  </thingDefs>
+							</filter>
+							<count>5</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_PlasticPellets_TierTwo</li>
+							  </thingDefs>
+							</filter>
+							<count>5</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+						  <thingDefs>
+							<li>VMEu_Bronze</li>
+							<li>Steel</li>
+							<li>VMEu_PlasticPellets_TierTwo</li>
+						  </thingDefs>
+						</fixedIngredientFilter>
+						<products>
+						  <VMEu_HeavyAmmo>30</VMEu_HeavyAmmo>
+						</products>
+						<researchPrerequisite>VMEu_PlasticIndustry</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>		
+		</operations>
+	</match>
+</Operation>
+
+</Patch>

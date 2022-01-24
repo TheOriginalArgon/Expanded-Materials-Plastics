@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- ##### Plastic Decorative Floors ##### -->
+
+<!-- ##### Plastic Mosaic ##### -->
+<TerrainDef Name="PlasticMosaicBase" ParentName="FloorBase" Abstract="True">
+    <description>Plastic planks cutted into small mosaics. Pretty nice to see, can be colored in different ways to achieve the perfect look.</description>
+    <texturePath>Terrain/Surfaces/VMEu_PlasticMosaic</texturePath>
+    <statBases>
+      <WorkToBuild>85</WorkToBuild>
+      <Flammability>0.35</Flammability>
+	  <Beauty>0.3</Beauty>
+    </statBases>
+    <costList>
+      <VMEu_PlasticPlanks_TierOne>2</VMEu_PlasticPlanks_TierOne>
+    </costList>
+    <constructEffect>ConstructWood</constructEffect>
+	<designatorDropdown>VMEu_PlasticMosaicDropdownMenu</designatorDropdown>
+	<researchPrerequisites>
+      <li>VMEu_PlasticManufacture</li>
+    </researchPrerequisites>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticMosaicBase">
+    <defName>VMEu_PlasticMosaic_Beige</defName>
+    <label>beige plastic mosaics</label>
+	<renderPrecedence>250</renderPrecedence>
+    <color>(186, 177, 149)</color>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticMosaicBase">
+    <defName>VMEu_PlasticMosaic_Crimson</defName>
+    <label>crimson plastic mosaics</label>
+	<renderPrecedence>249</renderPrecedence>
+    <color>(138, 43, 59)</color>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticMosaicBase">
+    <defName>VMEu_PlasticMosaic_Blue</defName>
+    <label>blue plastic mosaics</label>
+	<renderPrecedence>248</renderPrecedence>
+    <color>(49, 73, 117)</color>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticMosaicBase">
+    <defName>VMEu_PlasticMosaic_Green</defName>
+    <label>green plastic mosaics</label>
+	<renderPrecedence>247</renderPrecedence>
+    <color>(58, 99, 50)</color>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticMosaicBase">
+    <defName>VMEu_PlasticMosaic_Gray</defName>
+    <label>gray plastic mosaics</label>
+	<renderPrecedence>246</renderPrecedence>
+    <color>(199, 199, 199)</color>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticMosaicBase">
+    <defName>VMEu_PlasticMosaic_Black</defName>
+    <label>black plastic mosaics</label>
+	<renderPrecedence>245</renderPrecedence>
+    <color>(77, 77, 77)</color>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticMosaicBase">
+    <defName>VMEu_PlasticMosaic_Golden</defName>
+    <label>golden plastic mosaics</label>
+	<renderPrecedence>244</renderPrecedence>
+    <color>(177, 181, 125)</color>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticMosaicBase">
+    <defName>VMEu_PlasticMosaic_Pink</defName>
+    <label>pink plastic mosaics</label>
+	<renderPrecedence>243</renderPrecedence>
+    <color>(189, 132, 191)</color>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticMosaicBase">
+    <defName>VMEu_PlasticMosaic_Brown</defName>
+    <label>brown plastic mosaics</label>
+	<renderPrecedence>242</renderPrecedence>
+    <color>(117, 103, 69)</color>
+  </TerrainDef>
+  
+  <!-- ##### Plastic Tile ##### -->
+  <TerrainDef Name="PlasticTileBase" ParentName="FloorBase" Abstract="True">
+    <description>Plastic planks cutted into big squares. Gives that feeling of modernity and its extra-smooth surface allows for a small bonus to cleanliness.</description>
+    <texturePath>Terrain/Surfaces/VMEu_PlasticTile</texturePath>
+    <statBases>
+      <WorkToBuild>95</WorkToBuild>
+      <Flammability>0.35</Flammability>
+	  <Beauty>0.1</Beauty>
+	  <Cleanliness>0.1</Cleanliness>
+    </statBases>
+    <costList>
+      <VMEu_PlasticPlanks_TierOne>3</VMEu_PlasticPlanks_TierOne>
+    </costList>
+    <constructEffect>ConstructWood</constructEffect>
+	<designatorDropdown>VMEu_PlasticTileDropdownMenu</designatorDropdown>
+	<researchPrerequisites>
+      <li>VMEu_PlasticManufacture</li>
+    </researchPrerequisites>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticTileBase">
+    <defName>VMEu_PlasticTiles_Rose</defName>
+    <label>rose plastic tiles</label>
+	<renderPrecedence>241</renderPrecedence>
+    <color>(250, 191, 175)</color>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticTileBase">
+    <defName>VMEu_PlasticTiles_Silver</defName>
+    <label>silver plastic tiles</label>
+	<renderPrecedence>240</renderPrecedence>
+    <color>(235, 235, 235)</color>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="PlasticTileBase">
+    <defName>VMEu_PlasticTiles_Aqua</defName>
+    <label>aqua plastic tiles</label>
+	<renderPrecedence>239</renderPrecedence>
+    <color>(184, 230, 223)</color>
+  </TerrainDef>
+  
+  <!-- ##### Asphalt Road ##### -->
+  <TerrainDef ParentName="FloorBase">
+    <defName>VMEu_AsphaltRoad</defName>
+    <label>asphalt</label>
+    <description>Rough asphalt road. It is very quick to build and it it very easy to travel through, it also does look quite neat.</description>
+    <texturePath>Terrain/Surfaces/Concrete</texturePath>
+	<color>(86, 86, 86)</color>
+    <edgeType>Hard</edgeType>
+    <renderPrecedence>90</renderPrecedence>
+    <statBases>
+      <WorkToBuild>95</WorkToBuild>
+    </statBases>
+    <costList>
+      <VMEu_AsphaltMix>1</VMEu_AsphaltMix>
+    </costList>
+    <researchPrerequisites>
+      <li>BiofuelRefining</li>
+    </researchPrerequisites>
+  </TerrainDef>
+
+	
+
+</Defs>

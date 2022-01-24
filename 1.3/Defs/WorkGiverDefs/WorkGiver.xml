@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<WorkGiverDef>
+    <defName>VMEu_DoBillsSimpleWeaver</defName>
+    <label>weaving materials</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>85</priorityInType>
+    <fixedBillGiverDefs>
+      <li>VMEu_PlasticProcessor</li>
+    </fixedBillGiverDefs>
+    <verb>work</verb>
+    <gerund>working at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+  
+  <WorkGiverDef>
+    <defName>VMEu_DoBillsSynthWeaver</defName>
+    <label>weaving materials</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>85</priorityInType>
+    <fixedBillGiverDefs>
+      <li>VMEu_SynthWeaver</li>
+    </fixedBillGiverDefs>
+    <verb>work</verb>
+    <gerund>working at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+  
+  <WorkGiverDef>
+    <defName>VMEu_DoBillsOilDistiller</defName>
+    <label>distilling dark oil</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>85</priorityInType>
+    <fixedBillGiverDefs>
+      <li>VMEu_OilDistiller</li>
+    </fixedBillGiverDefs>
+    <verb>distill</verb>
+    <gerund>distilling at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+  
+</Defs>

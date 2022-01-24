@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<ThingDef ParentName="SculptureBase">
+    <defName>VMEu_PlasticSculpture</defName>
+    <label>plastic sculpture</label>
+    <description>A small piece of art made with plastic. Plastic makes it possible to use bright and good-looking colors.\n\nDespite being pretty beautiful, these plastic sculptures are cheap to make, so their market value is lower than a classic sculpture.</description>
+    <graphicData>
+      <graphicClass>Graphic_Random</graphicClass>
+      <texPath>Things/Building/Art/VMEu_PlasticSculpture</texPath>
+	  <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <fillPercent>0.35</fillPercent>
+    <rotatable>false</rotatable>
+    <statBases>
+	  <SellPriceFactor>0.90</SellPriceFactor>
+	  <Flammability>1.1</Flammability>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>1.85</Mass>
+      <Beauty>60</Beauty>
+      <WorkToMake>9900</WorkToMake>
+    </statBases>
+	<costList>
+		<VMEu_PlasticPellets_TierOne>50</VMEu_PlasticPellets_TierOne>
+	</costList>
+	<researchPrerequisites>
+		<li>VMEu_PlasticManufacture</li>
+	</researchPrerequisites>
+  </ThingDef>
+
+</Defs>

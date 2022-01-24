@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ResearchProjectDef>
+		<defName>VMEu_PlasticManufacture</defName>
+		<label>plastic manufacture</label>
+		<tab>VMEu_PlasticsResearchTab</tab>
+		<techLevel>Industrial</techLevel>
+		<description>Allows the manufacture of diverse mateirals created from dark oil. These materials range from cheap and weak ones used for medium quality furniture, to hard and durable ones used for building resistent yet cheap structures.</description>
+		<baseCost>900</baseCost>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>0.20</researchViewY>
+		<prerequisites>
+			<li>Electricity</li>
+			<li>BiofuelRefining</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>VMEu_PolymerMaterials</defName>
+		<label>polymer materials</label>
+		<tab>VMEu_PlasticsResearchTab</tab>
+		<techLevel>Industrial</techLevel>
+		<description>Allows the synthetizing of advanced industrial materials created from dark oil. These materials are highly flexible and can be used in a lot of stuff, they are also required in most advanced structures and machines.</description>
+		<baseCost>1200</baseCost>
+		<researchViewX>1.00</researchViewX>
+		<researchViewY>0.20</researchViewY>
+		<prerequisites>
+			<li>DrugProduction</li>
+			<li>VMEu_PlasticManufacture</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>VMEu_PlasticIndustry</defName>
+		<label>plastic industry</label>
+		<tab>VMEu_PlasticsResearchTab</tab>
+		<techLevel>Industrial</techLevel>
+		<description>Research the correct way of implementing dark oil-based materials in order to replace a wide range of materials.</description>
+		<baseCost>1000</baseCost>
+		<researchViewX>2.00</researchViewX>
+		<researchViewY>1.15</researchViewY>
+		<prerequisites>
+			<li>Fabrication</li>
+			<li>VMEu_PolymerMaterials</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>VMEu_AdvancedChemistry</defName>
+		<label>advanced chemistry</label>
+		<tab>VMEu_PlasticsResearchTab</tab>
+		<techLevel>Industrial</techLevel>
+		<description>Research how to synthetize powerful chemicals from dark oil, which will allow you to agilize your production chains and to craft new stuff.</description>
+		<baseCost>2000</baseCost>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>1.20</researchViewY>
+		<prerequisites>
+			<li>Fabrication</li>
+			<li>DrugProduction</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<!-- ===== SPACER ===== -->
+	
+	<ResearchProjectDef>
+		<defName>VMEu_SynthWeaving</defName>
+		<label>synthetic fiber weaving</label>
+		<tab>VMEu_PlasticsResearchTab</tab>
+		<techLevel>Ultra</techLevel>
+		<description>Learn to synthetize nanofibers in order to create strong fabrics like synthread or hyperweave.</description>
+		<baseCost>3500</baseCost>
+		<researchViewX>2.00</researchViewX>
+		<researchViewY>0.10</researchViewY>
+		<prerequisites>
+			<li>Fabrication</li>
+			<li>VMEu_PolymerMaterials</li>
+			<li>VMEu_AdvancedChemistry</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<!-- ===== ULTRA ===== -->
+	
+	<ResearchProjectDef>
+		<defName>VMEu_PlasteelWeaving</defName>
+		<label>plasteel formula</label>
+		<tab>VMEu_PlasticsResearchTab</tab>
+		<techLevel>Ultra</techLevel>
+		<description>Research the secrets of plasteel, an ultratech almost perfect material used only by the ones who discovered the secret and time consuming formula to process it.</description>
+		<baseCost>4000</baseCost>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>0.30</researchViewY>
+		<prerequisites>
+			<li>Fabrication</li>
+			<li>VMEu_PolymerMaterials</li>
+			<li>VMEu_AdvancedChemistry</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>VMEu_AntigrainPolymers</defName>
+		<label>antigrain polymers</label>
+		<tab>VMEu_PlasticsResearchTab</tab>
+		<techLevel>Ultra</techLevel>
+		<description>Learn to synthetize powerful and destructive antigrain chemicals used only in the most advanced glitterworlds.</description>
+		<baseCost>5000</baseCost>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>1.30</researchViewY>
+		<prerequisites>
+			<li>VMEu_PolymerMaterials</li>
+			<li>VMEu_AdvancedChemistry</li>
+			<li>Fabrication</li>
+			<li>Mortars</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>VMEu_GlitterworldMedicine</defName>
+		<label>glitterworld medicine</label>
+		<tab>VMEu_PlasticsResearchTab</tab>
+		<techLevel>Ultra</techLevel>
+		<description>Research how to implement powerful drugs combined with synthetic chemicals in order to craft the most valuable medicine among Rimworlds.</description>
+		<baseCost>4000</baseCost>
+		<researchViewX>1.00</researchViewX>
+		<researchViewY>1.20</researchViewY>
+		<prerequisites>
+			<li>Fabrication</li>
+			<li>MedicineProduction</li>
+			<li>VMEu_AdvancedChemistry</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+
+</Defs>

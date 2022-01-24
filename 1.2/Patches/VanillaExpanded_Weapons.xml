@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>Vanilla Weapons Expanded</li>
+    </mods>
+	<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "Gun_TripleRocket"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>110</Steel>
+					  <VMEu_PlasticPellets_TierTwo>50</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>9</ComponentIndustrial>
+					  <Shell_HighExplosive>3</Shell_HighExplosive>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "Gun_DoomsdayRocket"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>70</Steel>
+					  <VMEu_PlasticPellets_TierTwo>30</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>10</ComponentIndustrial>
+					  <Shell_AntigrainWarhead>1</Shell_AntigrainWarhead>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWE_Gun_RocketLauncher"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>40</Steel>
+					  <VMEu_PlasticPellets_TierTwo>20</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>3</ComponentIndustrial>
+					  <Shell_HighExplosive>1</Shell_HighExplosive>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWE_Gun_GrenadeLauncher"]/costList</xpath>
+				<value>
+					<costList>
+						<Steel>65</Steel>
+						<VMEu_PlasticPellets_TierTwo>10</VMEu_PlasticPellets_TierTwo>
+						<ComponentIndustrial>4</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWE_Gun_Flamethrower"]/costList</xpath>
+				<value>
+					<costList>
+						<Steel>60</Steel>
+						<VMEu_PlasticPellets_TierTwo>15</VMEu_PlasticPellets_TierTwo>
+						<ComponentIndustrial>4</ComponentIndustrial>
+						<Chemfuel>40</Chemfuel>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWE_Gun_LightSMG"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>25</Steel>
+					  <VMEu_PlasticPellets_TierTwo>20</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>3</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWE_Gun_SMG"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>50</Steel>
+					  <VMEu_PlasticPellets_TierTwo>25</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>4</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWE_Gun_HMG"]/costList</xpath>
+				<value>
+					<costList>
+						<Steel>50</Steel>
+						<VMEu_PlasticPellets_TierTwo>25</VMEu_PlasticPellets_TierTwo>
+						<ComponentIndustrial>6</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWE_Gun_ServiceRifle"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>40</Steel>
+					  <VMEu_PlasticPellets_TierTwo>20</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>7</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWE_Gun_BattleRifle"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>40</Steel>
+					  <VMEu_PlasticPellets_TierTwo>20</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>7</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWE_Gun_Carbine"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>40</Steel>
+					  <VMEu_PlasticPellets_TierTwo>20</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>7</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWE_Gun_MarksmanRifle"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>80</Steel>
+					  <VMEu_PlasticPellets_TierTwo>40</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>10</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWE_Gun_AntiMaterialRifle"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>80</Steel>
+					  <VMEu_PlasticPellets_TierTwo>80</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>16</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationFindMod">
+			<mods>
+				<li>Expanded Materials - Metals</li>
+			</mods>
+			<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "VWE_Gun_ChargePistol"]/costList</xpath>
+					<value>
+						<costList>
+						  <VMEu_CarbonFiber>10</VMEu_CarbonFiber>
+						  <Plasteel>10</Plasteel>
+						  <VMEu_Titanium>10</VMEu_Titanium>
+						  <ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "VWE_Gun_ChargeShotgun"]/costList</xpath>
+					<value>
+						<costList>
+						  <VMEu_CarbonFiber>15</VMEu_CarbonFiber>
+						  <Plasteel>15</Plasteel>
+						  <VMEu_Titanium>20</VMEu_Titanium>
+						  <ComponentSpacer>2</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "VWE_Gun_ChargeSMG"]/costList</xpath>
+					<value>
+						<costList>
+						  <VMEu_CarbonFiber>15</VMEu_CarbonFiber>
+						  <Plasteel>15</Plasteel>
+						  <VMEu_Titanium>10</VMEu_Titanium>
+						  <ComponentSpacer>2</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "VWE_Gun_ChargeLMG"]/costList</xpath>
+					<value>
+						<costList>
+						  <VMEu_CarbonFiber>30</VMEu_CarbonFiber>
+						  <Plasteel>35</Plasteel>
+						  <VMEu_Titanium>15</VMEu_Titanium>
+						  <ComponentSpacer>4</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "VWE_Gun_ChargeSniperRifle"]/costList</xpath>
+					<value>
+						<costList>
+						  <VMEu_CarbonFiber>20</VMEu_CarbonFiber>
+						  <Plasteel>20</Plasteel>
+						  <VMEu_Titanium>10</VMEu_Titanium>
+						  <ComponentSpacer>3</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "VWE_Gun_ChargeMinigun"]/costList</xpath>
+					<value>
+						<costList>
+						  <VMEu_CarbonFiber>50</VMEu_CarbonFiber>
+						  <Plasteel>50</Plasteel>
+						  <VMEu_Titanium>50</VMEu_Titanium>
+						  <ComponentSpacer>8</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "VWE_ToxicGrenade"]/costList</xpath>
+					<value>
+						<costList>
+						    <VMEu_CarbonFiber>10</VMEu_CarbonFiber>
+							<Chemfuel>100</Chemfuel>
+							<Plasteel>15</Plasteel>
+							<VMEu_Titanium>10</VMEu_Titanium>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				
+				<!-- Double Nested Check for Quickdraw -->
+				<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Vanilla Weapons Expanded - Quickdraw</li>
+				</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThingDef [defName = "VWE_Gun_AutomaticPistol"]/costList</xpath>
+								<value>
+									<costList>
+									  <Steel>15</Steel>
+									  <VMEu_CarbonFiber>10</VMEu_CarbonFiber>
+									  <ComponentIndustrial>2</ComponentIndustrial>
+									</costList>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThingDef [defName = "VWE_Gun_BullpupRifle"]/costList</xpath>
+								<value>
+									<costList>
+									  <Steel>30</Steel>
+									  <VMEu_CarbonFiber>30</VMEu_CarbonFiber>
+									  <ComponentIndustrial>7</ComponentIndustrial>
+									</costList>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThingDef [defName = "VWE_Gun_BullpupDMR"]/costList</xpath>
+								<value>
+									<costList>
+									  <Steel>90</Steel>
+									  <VMEu_CarbonFiber>40</VMEu_CarbonFiber>
+									  <ComponentIndustrial>10</ComponentIndustrial>
+									</costList>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThingDef [defName = "VWE_Gun_PDW"]/costList</xpath>
+								<value>
+									<costList>
+									  <Steel>50</Steel>
+									  <VMEu_CarbonFiber>25</VMEu_CarbonFiber>
+									  <ComponentIndustrial>4</ComponentIndustrial>
+									</costList>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+			</match>
+			</li>
+			
+			
+		</operations>
+	</match>
+</Operation>
+
+	
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>Vanilla Weapons Expanded - Laser</li>
+    </mods>
+	<match Class="PatchOperationFindMod">
+		<success>Always</success>
+		<mods>
+        <li>Expanded Materials - Metals</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_LaserSword"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Lithium>35</VMEu_Lithium>
+						<VMEu_Tungsten>80</VMEu_Tungsten>
+						<Plasteel>15</Plasteel>
+						<VMEu_CarbonFiber>15</VMEu_CarbonFiber>
+						<ComponentSpacer>10</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_Gun_LaserPistol"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Lithium>18</VMEu_Lithium>
+						<VMEu_Tungsten>50</VMEu_Tungsten>
+						<Plasteel>30</Plasteel>
+						<VMEu_CarbonFiber>30</VMEu_CarbonFiber>
+						<ComponentSpacer>4</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_Gun_LaserSMG"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Lithium>20</VMEu_Lithium>
+						<VMEu_Tungsten>50</VMEu_Tungsten>
+						<Plasteel>30</Plasteel>
+						<VMEu_CarbonFiber>30</VMEu_CarbonFiber>
+						<ComponentSpacer>5</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_Gun_LaserRifle"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Lithium>20</VMEu_Lithium>
+						<VMEu_Tungsten>55</VMEu_Tungsten>
+						<Plasteel>35</Plasteel>
+						<VMEu_CarbonFiber>35</VMEu_CarbonFiber>
+						<ComponentSpacer>6</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_Gun_LaserShotgun"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Lithium>20</VMEu_Lithium>
+						<VMEu_Tungsten>55</VMEu_Tungsten>
+						<Plasteel>35</Plasteel>
+						<VMEu_CarbonFiber>35</VMEu_CarbonFiber>
+						<ComponentSpacer>6</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_Gun_LaserSniperRifle"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Lithium>42</VMEu_Lithium>
+						<VMEu_Tungsten>65</VMEu_Tungsten>
+						<Plasteel>35</Plasteel>
+						<VMEu_CarbonFiber>35</VMEu_CarbonFiber>
+						<ComponentSpacer>8</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_Gun_LaserMinigun"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Lithium>100</VMEu_Lithium>
+						<VMEu_Tungsten>30</VMEu_Tungsten>
+						<Plasteel>60</Plasteel>
+						<VMEu_CarbonFiber>40</VMEu_CarbonFiber>
+						<ComponentSpacer>10</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_Gun_TeslaGun"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Copper>12</VMEu_Copper>
+						<VMEu_Lithium>20</VMEu_Lithium>
+						<VMEu_Tungsten>30</VMEu_Tungsten>
+						<Plasteel>40</Plasteel>
+						<VMEu_CarbonFiber>40</VMEu_CarbonFiber>
+						<ComponentSpacer>8</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<!-- ### Salvaged ### -->
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_Gun_SalvagedLaserPistol"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Lithium>12</VMEu_Lithium>
+						<VMEu_Tungsten>75</VMEu_Tungsten>
+						<VMEu_CarbonFiber>60</VMEu_CarbonFiber>
+						<ComponentSpacer>12</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_Gun_SalvagedLaserRifle"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Lithium>12</VMEu_Lithium>
+						<VMEu_Tungsten>75</VMEu_Tungsten>
+						<VMEu_CarbonFiber>60</VMEu_CarbonFiber>
+						<ComponentSpacer>12</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_Gun_SalvagedLaserShotgun"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Lithium>12</VMEu_Lithium>
+						<VMEu_Tungsten>75</VMEu_Tungsten>
+						<VMEu_CarbonFiber>60</VMEu_CarbonFiber>
+						<ComponentSpacer>12</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "VWEL_Gun_SalvagedLaserSniperRifle"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_Lithium>12</VMEu_Lithium>
+						<VMEu_Tungsten>75</VMEu_Tungsten>
+						<VMEu_CarbonFiber>60</VMEu_CarbonFiber>
+						<ComponentSpacer>12</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+		</operations>
+	</match>
+	</match>
+</Operation>
+
+</Patch>

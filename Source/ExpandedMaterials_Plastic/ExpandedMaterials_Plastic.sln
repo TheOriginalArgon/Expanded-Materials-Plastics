@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpandedMaterials_Plastic", "ExpandedMaterials_Plastic\ExpandedMaterials_Plastic.csproj", "{46A37A8B-29AF-488D-A50A-A2DF110B0047}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46A37A8B-29AF-488D-A50A-A2DF110B0047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46A37A8B-29AF-488D-A50A-A2DF110B0047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46A37A8B-29AF-488D-A50A-A2DF110B0047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46A37A8B-29AF-488D-A50A-A2DF110B0047}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3DB751C-2BD6-4DA9-A840-17721F912174}
+	EndGlobalSection
+EndGlobal

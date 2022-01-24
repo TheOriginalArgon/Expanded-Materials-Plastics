@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<!-- Vanilla Cooking Expanded -->
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>Vanilla Cooking Expanded</li>
+    </mods>
+	<match Class="PatchOperationSequence">
+		<!-- <success>Always</success> -->
+		<operations>
+			<!-- ##### ADD SNACKS ##### -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ThingDef ParentName="ResourceBase">
+						<defName>VMEu_Snacks</defName>
+						<label>wrapped snacks</label>
+						<description>Good-tasting cheap food made from artificially flavoured puffed corn or dryed fruits wrapped in a plastic bag, it lasts a long time and can be consumed directly and quickly. While it is not very nutritious, it slightly supresses hunger for a little bit after consumption.</description>
+						<graphicData>
+						  <texPath>Things/Item/Meal/VMEu_Snacks</texPath>
+						  <graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<soundInteract>Standard_Drop</soundInteract>
+						<soundDrop>Standard_Drop</soundDrop>
+						 <stackLimit>50</stackLimit>
+						<socialPropernessMatters>true</socialPropernessMatters>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<Beauty>0</Beauty>
+							<DeteriorationRate>0.15</DeteriorationRate>
+						  <MarketValue>11</MarketValue>
+						  <Mass>0.1</Mass>
+						  <WorkToMake>150</WorkToMake>
+						  <Nutrition>0.05</Nutrition>
+						</statBases>
+						<tickerType>Rare</tickerType>
+						<thingCategories>
+							<li>FoodMeals</li>
+						</thingCategories>
+						<tradeTags Inherit="False">
+							<li>VCE_JunkFood</li>
+						</tradeTags>
+						<ingestible>
+							<chairSearchRadius>9</chairSearchRadius>
+							<preferability>DesperateOnly</preferability>
+							<foodType>Processed</foodType>
+							<joy>0.3</joy>
+							<drugCategory>Social</drugCategory>
+							<tasteThought>VMEu_ConsumedSnacks</tasteThought>
+							<joyKind>Gluttonous</joyKind>
+							<maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+							<ingestSound>Meal_Eat</ingestSound>
+							<ingestEffect>EatVegetarian</ingestEffect>
+						</ingestible>
+						<comps>
+							<li Class="CompProperties_Rottable">
+								<daysToRotStart>20</daysToRotStart>
+								<rotDestroys>true</rotDestroys>
+							</li>
+							<li Class="CompProperties_Forbiddable" />
+							<li Class="CompProperties_Ingredients" />
+							<li Class="CompProperties_Drug">
+								<listOrder>1000</listOrder>
+								<overdoseSeverityOffset>0.01~0.08</overdoseSeverityOffset>
+							</li>
+						</comps>
+					</ThingDef>
+
+					<RecipeDef>
+						<defName>VMEu_WrapSnacks</defName>
+						<label>wrap snacks</label>
+						<description>Wrap puffed corn snacks or dryed fruits into a plastic bag.</description>
+						<jobString>Wrapping snacks.</jobString>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>VanillaCookingExpanded.IngredientValueGetter_NutritionWithExtraIngredient</ingredientValueGetterClass>
+						<recipeUsers>
+							<li>ElectricStove</li>	
+							<li>FueledStove</li>			
+						</recipeUsers>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>RawBerries</li>
+										<li>RawCorn</li>
+									</thingDefs>
+								</filter>
+								<count>0.25</count>
+							</li>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>VMEu_NylonRoll</li>
+									</thingDefs>
+								</filter>
+								<count>3</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>			
+							<thingDefs>
+								<li>RawBerries</li>
+								<li>RawCorn</li>
+								<li>VMEu_NylonRoll</li>
+							</thingDefs>
+							<specialFiltersToDisallow>
+								<li>AllowPlantFood</li>
+							</specialFiltersToDisallow>
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>			
+							<thingDefs>
+								<li>RawBerries</li>
+								<li>RawCorn</li>
+								<li>VMEu_NylonRoll</li>
+							</thingDefs>
+							<disallowedCategories>
+								<li>EggsFertilized</li>
+							</disallowedCategories>			
+						</defaultIngredientFilter>
+						<workSkill>Cooking</workSkill>
+						<products>
+							<VMEu_Snacks>5</VMEu_Snacks>
+						</products>
+					</RecipeDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Vanilla Plants Expanded</li>
+				</mods>
+					<match Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/RecipeDef [defName = "VMEu_WrapSnacks"]/ingredients</xpath>
+							<value>
+								<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>RawCorn</li>
+										</thingDefs>
+										<categories>
+											<li>VCE_Fruit</li>
+										</categories>
+									</filter>
+									<count>0.25</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>VMEu_NylonRoll</li>
+										</thingDefs>
+									</filter>
+									<count>3</count>
+								</li>
+							</ingredients>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/RecipeDef [defName = "VMEu_WrapSnacks"]/fixedIngredientFilter</xpath>
+							<value>
+								<fixedIngredientFilter>			
+									<thingDefs>
+										<li>RawCorn</li>
+										<li>VMEu_NylonRoll</li>
+									</thingDefs>
+									<categories>
+											<li>VCE_Fruit</li>
+										</categories>
+									<specialFiltersToDisallow>
+										<li>AllowPlantFood</li>
+									</specialFiltersToDisallow>
+								</fixedIngredientFilter>
+							</value>
+						</li>
+						</operations>
+					</match>
+			</li>
+			
+			<!-- ##### ADD SURVIVAL MEAL TIERS ##### -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "MealSurvivalPack"]/label</xpath>
+				<value>
+					<label>packaged survival simple meal</label>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "MealSurvivalPack"]/graphicData/texPath</xpath>
+				<value>
+					<texPath>Things/Item/Meal/VMEu_WrappedMeal_Simple</texPath>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ThingDef ParentName="MealBase">
+						<defName>VMEu_WrappedMeal_Fine</defName>
+						<label>packaged survival fine meal</label>
+						<description>A high-quality packaged fine meal, manufactured for use in survival situations. While it never rots, it can still deteriorate if left outside. Great for traveling.</description>
+						<graphicData>
+						  <texPath>Things/Item/Meal/VMEu_WrappedMeal_Fine</texPath>
+						  <graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<statBases>
+						  <DeteriorationRate>0.25</DeteriorationRate>
+						  <MarketValue>35</MarketValue>
+						  <Mass>0.3</Mass>
+						  <WorkToMake>600</WorkToMake>
+						  <Nutrition>0.9</Nutrition>
+						</statBases>
+						<ingestible>
+						  <preferability>MealFine</preferability>
+						  <tasteThought>AteFineMeal</tasteThought>
+						  <optimalityOffsetHumanlikes>-5</optimalityOffsetHumanlikes>
+						  <optimalityOffsetFeedingAnimals>-10</optimalityOffsetFeedingAnimals>
+						  <ingestEffect>EatVegetarian</ingestEffect>
+						  <ingestSound>Meal_Eat</ingestSound>
+						</ingestible>
+					  </ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ThingDef ParentName="MealBase">
+						<defName>VMEu_WrappedMeal_Lavish</defName>
+						<label>packaged survival lavish meal</label>
+						<description>A high-quality packaged lavish meal, manufactured for use in survival situations. While it never rots, it can still deteriorate if left outside. Great for traveling.</description>
+						<graphicData>
+						  <texPath>Things/Item/Meal/VMEu_WrappedMeal_Lavish</texPath>
+						  <graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<statBases>
+						  <DeteriorationRate>0.25</DeteriorationRate>
+						  <MarketValue>52</MarketValue>
+						  <Mass>0.3</Mass>
+						  <WorkToMake>900</WorkToMake>
+						  <Nutrition>1</Nutrition>
+						</statBases>
+						<ingestible>
+						  <preferability>MealLavish</preferability>
+						  <tasteThought>AteLavishMeal</tasteThought>
+						  <optimalityOffsetHumanlikes>-5</optimalityOffsetHumanlikes>
+						  <optimalityOffsetFeedingAnimals>-10</optimalityOffsetFeedingAnimals>
+						  <ingestEffect>EatVegetarian</ingestEffect>
+						  <ingestSound>Meal_Eat</ingestSound>
+						</ingestible>
+					  </ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<ThingDef ParentName="MealBase">
+						<defName>VMEu_WrappedMeal_Gourmet</defName>
+						<label>packaged survival gourmet meal</label>
+						<description>A high-quality packaged gourmet meal, manufactured for use in survival situations. While it never rots, it can still deteriorate if left outside. Great for traveling.</description>
+						<graphicData>
+						  <texPath>Things/Item/Meal/VMEu_WrappedMeal_Gourmet</texPath>
+						  <graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<statBases>
+						  <DeteriorationRate>0.25</DeteriorationRate>
+						  <MarketValue>80</MarketValue>
+						  <Mass>0.3</Mass>
+						  <WorkToMake>1700</WorkToMake>
+						  <Nutrition>0.7</Nutrition>
+						</statBases>
+						<ingestible>
+						  <tasteThought>VCE_AteGourmetMeal</tasteThought>
+						  <preferability>MealLavish</preferability>
+						  <optimalityOffsetHumanlikes>-5</optimalityOffsetHumanlikes>
+						  <optimalityOffsetFeedingAnimals>-10</optimalityOffsetFeedingAnimals>
+						  <ingestEffect>EatVegetarian</ingestEffect>
+						  <ingestSound>Meal_Eat</ingestSound>
+						</ingestible>
+						<comps>
+						  <li Class="VanillaCookingExpanded.CompProperties_StackByCondiments" />
+						 
+						</comps>
+					  </ThingDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<RecipeDef ParentName="CookMealBase">
+						<defName>VMEu_CookWrappedMeal_Simple</defName>
+						<label>cook packaged survival simple meal</label>
+						<description>Cook a simple survival meal.</description>
+						<jobString>Cooking survival simple meal.</jobString>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>VanillaCookingExpanded.IngredientValueGetter_NutritionWithExtraIngredient</ingredientValueGetterClass>
+						<recipeUsers>
+							<li>FueledStove</li>
+							<li>ElectricStove</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <categories>
+								<li>FoodRaw</li>
+							  </categories>
+							</filter>
+							<count>0.60</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_NylonRoll</li>
+							  </thingDefs>
+							</filter>
+							<count>5</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<categories>
+								<li>FoodRaw</li>				
+							</categories>			
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>FoodRaw</li>				
+							</categories>
+						</defaultIngredientFilter>
+						<products>
+						  <MealSurvivalPack>1</MealSurvivalPack>
+						</products>
+						<workSkill>Cooking</workSkill>
+						<researchPrerequisite>PackagedSurvivalMeal</researchPrerequisite>
+					  </RecipeDef>
+					  <RecipeDef ParentName="CookMealBase">
+						<defName>VMEu_CookWrappedMeal_Simple_x4</defName>
+						<label>cook packaged survival simple meal x4</label>
+						<description>Cook four simple survival meals.</description>
+						<jobString>Cooking four survival simple meals.</jobString>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>VanillaCookingExpanded.IngredientValueGetter_NutritionWithExtraIngredient</ingredientValueGetterClass>
+						<recipeUsers>
+							<li>FueledStove</li>
+							<li>ElectricStove</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <categories>
+								<li>FoodRaw</li>
+							  </categories>
+							</filter>
+							<count>2.4</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_NylonRoll</li>
+							  </thingDefs>
+							</filter>
+							<count>20</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<categories>
+								<li>FoodRaw</li>				
+							</categories>			
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>FoodRaw</li>				
+							</categories>
+						</defaultIngredientFilter>
+						<products>
+						  <MealSurvivalPack>4</MealSurvivalPack>
+						</products>
+						<workSkill>Cooking</workSkill>
+						<researchPrerequisite>PackagedSurvivalMeal</researchPrerequisite>
+					  </RecipeDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+					<value>
+					<RecipeDef ParentName="CookMealBase">
+						<defName>VMEu_CookWrappedMeal_Fine</defName>
+						<label>cook packaged survival fine meal</label>
+						<description>Cook a fine survival meal.</description>
+						<jobString>Cooking survival fine meal.</jobString>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>VanillaCookingExpanded.IngredientValueGetter_NutritionWithExtraIngredient</ingredientValueGetterClass>
+						<recipeUsers>
+							<li>FueledStove</li>
+							<li>ElectricStove</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>
+							  </categories>
+							</filter>
+							<count>0.3</count>
+						  </li>
+						  <li>
+							<filter>
+							  <categories>
+								<li>PlantFoodRaw</li>
+							  </categories>
+							</filter>
+							<count>0.3</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_NylonRoll</li>
+							  </thingDefs>
+							</filter>
+							<count>5</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>								
+							</categories>			
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>					
+							</categories>
+						</defaultIngredientFilter>
+						<products>
+						  <VMEu_WrappedMeal_Fine>1</VMEu_WrappedMeal_Fine>
+						</products>
+						<workSkill>Cooking</workSkill>
+						<researchPrerequisite>PackagedSurvivalMeal</researchPrerequisite>
+					  </RecipeDef>
+					  <RecipeDef ParentName="CookMealBase">
+						<defName>VMEu_CookWrappedMeal_Fine_x4</defName>
+						<label>cook packaged survival fine meal x4</label>
+						<description>Cook four fine survival meals.</description>
+						<jobString>Cooking four survival fine meals.</jobString>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>VanillaCookingExpanded.IngredientValueGetter_NutritionWithExtraIngredient</ingredientValueGetterClass>
+						<recipeUsers>
+							<li>FueledStove</li>
+							<li>ElectricStove</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>
+							  </categories>
+							</filter>
+							<count>1.2</count>
+						  </li>
+						  <li>
+							<filter>
+							  <categories>
+								<li>PlantFoodRaw</li>
+							  </categories>
+							</filter>
+							<count>1.2</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_NylonRoll</li>
+							  </thingDefs>
+							</filter>
+							<count>20</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>								
+							</categories>			
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>					
+							</categories>
+						</defaultIngredientFilter>
+						<products>
+						  <VMEu_WrappedMeal_Fine>4</VMEu_WrappedMeal_Fine>
+						</products>
+						<workSkill>Cooking</workSkill>
+						<researchPrerequisite>PackagedSurvivalMeal</researchPrerequisite>
+					  </RecipeDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<RecipeDef ParentName="CookMealBase">
+						<defName>VMEu_CookWrappedMeal_Lavish</defName>
+						<label>cook packaged survival lavish meal</label>
+						<description>Cook a lavish survival meal.</description>
+						<jobString>Cooking survival lavish meal.</jobString>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>VanillaCookingExpanded.IngredientValueGetter_NutritionWithExtraIngredient</ingredientValueGetterClass>
+						<recipeUsers>
+							<li>FueledStove</li>
+							<li>ElectricStove</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>
+							  </categories>
+							</filter>
+							<count>0.6</count>
+						  </li>
+						  <li>
+							<filter>
+							  <categories>
+								<li>PlantFoodRaw</li>
+							  </categories>
+							</filter>
+							<count>0.6</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_NylonRoll</li>
+							  </thingDefs>
+							</filter>
+							<count>8</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>								
+							</categories>			
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>					
+							</categories>
+						</defaultIngredientFilter>
+						<products>
+						  <VMEu_WrappedMeal_Lavish>1</VMEu_WrappedMeal_Lavish>
+						</products>
+						<workSkill>Cooking</workSkill>
+						<researchPrerequisite>PackagedSurvivalMeal</researchPrerequisite>
+					  </RecipeDef>
+					  <RecipeDef ParentName="CookMealBase">
+						<defName>VMEu_CookWrappedMeal_Lavish_x4</defName>
+						<label>cook packaged survival lavish meal x4</label>
+						<description>Cook four lavish survival meals.</description>
+						<jobString>Cooking four survival lavish meals.</jobString>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>VanillaCookingExpanded.IngredientValueGetter_NutritionWithExtraIngredient</ingredientValueGetterClass>
+						<recipeUsers>
+							<li>FueledStove</li>
+							<li>ElectricStove</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>
+							  </categories>
+							</filter>
+							<count>2.4</count>
+						  </li>
+						  <li>
+							<filter>
+							  <categories>
+								<li>PlantFoodRaw</li>
+							  </categories>
+							</filter>
+							<count>2.4</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_NylonRoll</li>
+							  </thingDefs>
+							</filter>
+							<count>32</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>								
+							</categories>			
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>					
+							</categories>
+						</defaultIngredientFilter>
+						<products>
+						  <VMEu_WrappedMeal_Lavish>4</VMEu_WrappedMeal_Lavish>
+						</products>
+						<workSkill>Cooking</workSkill>
+						<researchPrerequisite>PackagedSurvivalMeal</researchPrerequisite>
+					  </RecipeDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<RecipeDef ParentName="VCE_CookGourmetMealBase">
+						<defName>VMEu_CookWrappedMeal_Gourmet</defName>
+						<label>cook packaged survival gourmet meal</label>
+						<description>Cook a gourmet survival meal.</description>
+						<jobString>Cooking survival gourmet meal.</jobString>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>VanillaCookingExpanded.IngredientValueGetter_NutritionWithExtraIngredient</ingredientValueGetterClass>
+						<recipeUsers>
+							<li>FueledStove</li>
+							<li>ElectricStove</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>
+							  </categories>
+							</filter>
+							<count>0.6</count>
+						  </li>
+						  <li>
+							<filter>
+							  <categories>
+								<li>PlantFoodRaw</li>
+							  </categories>
+							</filter>
+							<count>0.6</count>
+						  </li>
+						  <li>
+							<filter>
+							  <categories>
+								<li>VCE_Condiments</li>
+							  </categories>
+							</filter>
+							<count>1</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_NylonRoll</li>
+							  </thingDefs>
+							</filter>
+							<count>10</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>
+								<li>VCE_Condiments</li>
+							</categories>			
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>
+								<li>VCE_Condiments</li>				
+							</categories>
+						</defaultIngredientFilter>
+						<products>
+						  <VMEu_WrappedMeal_Gourmet>1</VMEu_WrappedMeal_Gourmet>
+						</products>
+						<workSkill>Cooking</workSkill>
+						<researchPrerequisite>PackagedSurvivalMeal</researchPrerequisite>
+					  </RecipeDef>
+					  <RecipeDef ParentName="VCE_CookGourmetMealBase">
+						<defName>VMEu_CookWrappedMeal_Gourmet_x4</defName>
+						<label>cook packaged survival gourmet meal x4</label>
+						<description>Cook four gourmet survival meals.</description>
+						<jobString>Cooking four survival gourmet meals.</jobString>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>VanillaCookingExpanded.IngredientValueGetter_NutritionWithExtraIngredient</ingredientValueGetterClass>
+						<recipeUsers>
+							<li>FueledStove</li>
+							<li>ElectricStove</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>
+							  </categories>
+							</filter>
+							<count>2.4</count>
+						  </li>
+						  <li>
+							<filter>
+							  <categories>
+								<li>PlantFoodRaw</li>
+							  </categories>
+							</filter>
+							<count>2.4</count>
+						  </li>
+						  <li>
+							<filter>
+							  <categories>
+								<li>VCE_Condiments</li>
+							  </categories>
+							</filter>
+							<count>4</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_NylonRoll</li>
+							  </thingDefs>
+							</filter>
+							<count>40</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>
+								<li>VCE_Condiments</li>
+							</categories>			
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>MeatRaw</li>
+								<li>AnimalProductRaw</li>	
+								<li>PlantFoodRaw</li>
+								<li>VCE_Condiments</li>				
+							</categories>
+						</defaultIngredientFilter>
+						<products>
+						  <VMEu_WrappedMeal_Gourmet>4</VMEu_WrappedMeal_Gourmet>
+						</products>
+						<workSkill>Cooking</workSkill>
+						<researchPrerequisite>PackagedSurvivalMeal</researchPrerequisite>
+					  </RecipeDef>
+				</value>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/ThingDef [defName="ElectricStove"]/recipes/li [text()="CookMealSurvival"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/ThingDef [defName="ElectricStove"]/recipes/li [text()="CookMealSurvivalBulk"]</xpath>
+			</li>
+
+		</operations>
+	</match>
+</Operation>
+
+</Patch>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+	<mods>
+		<li>Royalty</li>
+	</mods>
+	<success>Always</success>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PawnKindDef [@Name = "ImperialFighterBase"]/weaponMoney</xpath>
+					<value>
+						<weaponMoney>1200~2500</weaponMoney>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	
+</Patch>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+		<Operation Class="PatchOperationAdd">
+			<xpath>/Defs/ResearchProjectDef [defName = "PackagedSurvivalMeal"]/prerequisites</xpath>
+			<value>
+				  <li>VMEu_PlasticManufacture</li>
+			</value>
+		</Operation>
+		
+		<Operation Class="PatchOperationAdd">
+			<xpath>/Defs/ResearchProjectDef [defName = "GasOperation"]/prerequisites</xpath>
+			<value>
+				  <li>VMEu_PolymerMaterials</li>
+			</value>
+		</Operation>
+		
+</Patch>

@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+	<mods>
+		<li>Expanded Materials - Metals</li>
+	</mods>
+	<match Class="PatchOperationSequence">
+		<operations>
+			<!-- ##### Remove Chemfuel directly from Fossils ##### -->
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/RecipeDef[defName="VMEu_MakeChemfuelFromFossil"]</xpath>
+			</li>
+			<!-- ##### Remove Plasteel Research from original EM - Metals ##### -->
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/ResearchProjectDef [defName = "VMEu_PlasteelAlloying"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakePlasteel"]</xpath>
+			</li>		
+			<!-- ##### CHANGES ON RECIPES ##### -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakeDarkOilFromFossil"]/workAmount</xpath>
+				<value>
+					<workAmount>7500</workAmount>
+				</value>
+			</li>
+			<!-- ########## CHANGE THE ADDED RECIPES IF NEEDED ##########-->
+			<!-- Change Asphalt Recipe -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakeAsphaltMix"]/ingredients</xpath>
+				<value>
+					<ingredients>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_RockPowder</li>
+						  </thingDefs>
+						</filter>
+						<count>40</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_DarkOil</li>
+						  </thingDefs>
+						</filter>
+						<count>1</count>
+					  </li>
+					</ingredients>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakeAsphaltMix_Bulk"]/ingredients</xpath>
+				<value>
+					<ingredients>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_RockPowder</li>
+						  </thingDefs>
+						</filter>
+						<count>75</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_DarkOil</li>
+						  </thingDefs>
+						</filter>
+						<count>3</count>
+					  </li>
+					</ingredients>
+				</value>
+			</li>
+			
+			<!-- Change Antigrain Mix Recipe -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakeAntigrainMix"]/ingredients</xpath>
+				<value>
+					<ingredients>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>Plasteel</li>
+						  </thingDefs>
+						</filter>
+						<count>3</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Actinamine</li>
+						  </thingDefs>
+						</filter>
+						<count>10</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Xenotamine</li>
+						  </thingDefs>
+						</filter>
+						<count>10</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Boraetamine</li>
+						  </thingDefs>
+						</filter>
+						<count>10</count>
+					  </li>
+					</ingredients>
+				</value>
+			</li>
+			
+			<!-- Change Synthread Recipe -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_WeaveSynthread"]/ingredients</xpath>
+				<value>
+					<ingredients>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_PlasteelBase</li>
+						  </thingDefs>
+						</filter>
+						<count>20</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Therminamine</li>
+						  </thingDefs>
+						</filter>
+						<count>5</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Xenotamine</li>
+						  </thingDefs>
+						</filter>
+						<count>10</count>
+					  </li>
+					</ingredients>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_WeaveSynthread"]/fixedIngredientFilter</xpath>
+				<value>
+					<fixedIngredientFilter>
+					  <thingDefs>
+						<li>VMEu_PlasteelBase</li>
+						<li>VMEu_Therminamine</li>
+						<li>VMEu_Xenotamine</li>
+					  </thingDefs>
+					</fixedIngredientFilter>
+				</value>
+			</li>
+			
+			<!-- Change Hyperweave Recipe -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_WeaveHyperWeave"]/ingredients</xpath>
+				<value>
+					<ingredients>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_PlasteelBase</li>
+						  </thingDefs>
+						</filter>
+						<count>20</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_PlasticPellets_TierTwo</li>
+						  </thingDefs>
+						</filter>
+						<count>50</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Therminamine</li>
+						  </thingDefs>
+						</filter>
+						<count>10</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Xenotamine</li>
+						  </thingDefs>
+						</filter>
+						<count>15</count>
+					  </li>
+					</ingredients>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_WeaveHyperWeave"]/fixedIngredientFilter</xpath>
+				<value>
+					<fixedIngredientFilter>
+					  <thingDefs>
+						<li>VMEu_PlasteelBase</li>
+						<li>VMEu_PlasticPellets_TierTwo</li>
+						<li>VMEu_Therminamine</li>
+						<li>VMEu_Xenotamine</li>
+					  </thingDefs>
+					</fixedIngredientFilter>
+				</value>
+			</li>
+			
+			<!-- Change Glitterworld Medicine Recipe -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef [defName = "MedicineUltratech"]</xpath>
+				<value>
+					<recipeMaker>
+					  <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+					  <workSkill>Intellectual</workSkill>
+					  <recipeUsers>
+						<li>FabricationBench</li>
+					  </recipeUsers>
+					  <researchPrerequisite>VMEu_GlitterworldMedicine</researchPrerequisite>
+					  <skillRequirements>
+						<Crafting>8</Crafting>
+						<Intellectual>8</Intellectual>
+					  </skillRequirements>
+					</recipeMaker>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef [defName = "MedicineUltratech"]</xpath>
+				<value>
+					<costList>
+					  <VMEu_CarbonFiber>10</VMEu_CarbonFiber>
+					  <VMEu_Therminamine>15</VMEu_Therminamine>
+					  <ComponentSpacer>2</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakeAsphaltMix"]/fixedIngredientFilter</xpath>
+				<value>
+					<fixedIngredientFilter>
+					  <thingDefs>
+						<li>VMEu_RockPowder</li>
+						<li>VMEu_DarkOil</li>
+					  </thingDefs>
+					</fixedIngredientFilter>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakeAsphaltMix_Bulk"]/fixedIngredientFilter</xpath>
+				<value>
+					<fixedIngredientFilter>
+					  <thingDefs>
+						<li>VMEu_RockPowder</li>
+						<li>VMEu_DarkOil</li>
+					  </thingDefs>
+					</fixedIngredientFilter>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakeAsphaltMix"]/recipeUsers</xpath>
+				<value>
+					<recipeUsers>
+						<li>VMEu_MetalSmelter</li>
+						<li>VMEu_ElectricMetalSmelter</li>
+						<li>VMEu_AdvancedSmelter</li>
+					</recipeUsers>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakeAsphaltMix_Bulk"]/recipeUsers</xpath>
+				<value>
+					<recipeUsers>
+						<li>VMEu_AdvancedSmelter</li>
+					</recipeUsers>
+				</value>
+			</li>
+			<!-- Change Plasteel Recipe -->
+			<!-- <li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_WeavePlasteelBase"]/ingredients</xpath>
+				<value>
+					<ingredients>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Therminamine</li>
+						  </thingDefs>
+						</filter>
+						<count>15</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Pronitamine</li>
+						  </thingDefs>
+						</filter>
+						<count>15</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_DarkOil</li>
+						  </thingDefs>
+						</filter>
+						<count>10</count>
+					  </li>
+					</ingredients>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_WeavePlasteelBase"]/fixedIngredientFilter</xpath>
+				<value>
+					<fixedIngredientFilter>
+					  <thingDefs>
+						<li>VMEu_Therminamine</li>
+						<li>VMEu_Pronitamine</li>
+						<li>VMEu_DarkOil</li>
+					  </thingDefs>
+					</fixedIngredientFilter>
+				</value>
+			</li> -->
+			
+			<!-- Change Polymer Components' Recipes -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakePolymerComponents"]/ingredients</xpath>
+				<value>
+					<ingredients>
+					<li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_PlasticPellets_TierTwo</li>
+						  </thingDefs>
+						</filter>
+						<count>5</count>
+					</li>
+					<li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Germanium</li>
+						  </thingDefs>
+						</filter>
+						<count>0.3</count>
+					</li>
+					<li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Copper</li>
+						  </thingDefs>
+						</filter>
+						<count>0.3</count>
+					</li>
+				</ingredients>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakePolymerComponents"] /fixedIngredientFilter</xpath>
+				<value>
+					<fixedIngredientFilter>
+					  <thingDefs>
+						<li>VMEu_PlasticPellets_TierTwo</li>
+						<li>VMEu_Copper</li>
+						<li>VMEu_Germanium</li>
+					  </thingDefs>
+					</fixedIngredientFilter>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakePolymerAdvancedComponents"]/ingredients</xpath>
+				<value>
+					<ingredients>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>Plasteel</li>
+						  </thingDefs>
+						</filter>
+						<count>3</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>Gold</li>
+						  </thingDefs>
+						</filter>
+						<count>0.1</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_PlasticPellets_TierTwo</li>
+						  </thingDefs>
+						</filter>
+						<count>10</count>
+					  </li>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Lithium</li>
+						  </thingDefs>
+						</filter>
+						<count>0.3</count>
+					  </li>
+					</ingredients>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/RecipeDef [defName = "VMEu_MakePolymerAdvancedComponents"] /fixedIngredientFilter</xpath>
+				<value>
+					<fixedIngredientFilter>
+					  <thingDefs>
+						<li>Plasteel</li>
+						<li>Gold</li>
+						<li>VMEu_PlasticPellets_TierTwo</li>
+						<li>VMEu_Lithium</li>
+					  </thingDefs>
+					</fixedIngredientFilter>
+				</value>
+			</li>
+			
+			<!-- ##### Change Recipes Already Changed By Plastics ##### -->
+			<!-- ##### Vanilla Bionics Recipes ##### -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "BionicEye"]/costList</xpath>
+				<value>
+					<costList>
+					  <Plasteel>5</Plasteel>
+					  <VMEu_CarbonFiber>10</VMEu_CarbonFiber>
+					  <ComponentSpacer>4</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "BionicArm"]/costList</xpath>
+				<value>
+					<costList>
+					  <Plasteel>5</Plasteel>
+					  <VMEu_CarbonFiber>10</VMEu_CarbonFiber>
+					  <ComponentSpacer>4</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "BionicLeg"]/costList</xpath>
+				<value>
+					<costList>
+					  <Plasteel>5</Plasteel>
+					  <VMEu_CarbonFiber>10</VMEu_CarbonFiber>
+					  <ComponentSpacer>4</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "BionicSpine"]/costList</xpath>
+				<value>
+					<costList>
+					  <Plasteel>5</Plasteel>
+					  <VMEu_CarbonFiber>10</VMEu_CarbonFiber>
+					  <ComponentSpacer>4</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "BionicStomach"]/costList</xpath>
+				<value>
+					<costList>
+					  <Plasteel>5</Plasteel>
+					  <VMEu_CarbonFiber>5</VMEu_CarbonFiber>
+					  <ComponentSpacer>3</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "BionicEar"]/costList</xpath>
+				<value>
+					<costList>
+					  <Plasteel>5</Plasteel>
+					  <VMEu_CarbonFiber>5</VMEu_CarbonFiber>
+					  <ComponentSpacer>3</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			
+			<!-- ##### Armor Changes ##### -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Apparel_AdvancedHelmet"]/costList</xpath>
+				<value>
+					<costList>
+					  <ComponentIndustrial>2</ComponentIndustrial>
+					  <VMEu_CarbonFiber>10</VMEu_CarbonFiber>
+					</costList>
+				</value>
+			</li>
+			
+			<!-- ##### Vanilla Power Armors ##### -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [@Name = "ApparelArmorHelmetPowerBase"]/costList</xpath>
+				<value>
+					<costList>
+					  <ComponentSpacer>1</ComponentSpacer>
+					  <Plasteel>20</Plasteel>
+					  <VMEu_CarbonFiber>20</VMEu_CarbonFiber>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [@Name = "ApparelArmorHelmetReconBase"]/costList</xpath>
+				<value>
+					<costList>
+					  <ComponentSpacer>1</ComponentSpacer>
+					  <Plasteel>15</Plasteel>
+					  <VMEu_CarbonFiber>15</VMEu_CarbonFiber>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [@Name = "ApparelArmorPowerBase"]/costList</xpath>
+				<value>
+					<costList>
+					  <ComponentSpacer>4</ComponentSpacer>
+					  <Plasteel>60</Plasteel>
+					  <VMEu_CarbonFiber>40</VMEu_CarbonFiber>
+					  <Uranium>20</Uranium>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [@Name = "ApparelArmorReconBase"]/costList</xpath>
+				<value>
+					<costList>
+					  <ComponentSpacer>3</ComponentSpacer>
+					  <Plasteel>50</Plasteel>
+					  <VMEu_CarbonFiber>30</VMEu_CarbonFiber>
+					  <Uranium>10</Uranium>
+					</costList>
+				</value>
+			</li>
+			
+			<!-- ##### WEAPONS ##### -->
+			
+			<!-- === Vanilla Weapons === -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_ChargeRifle"]/costList</xpath>
+				<value>
+					<costList>
+					  <Plasteel>30</Plasteel>
+					  <VMEu_CarbonFiber>20</VMEu_CarbonFiber>
+					  <ComponentSpacer>2</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_ChargeLance"]/costList</xpath>
+				<value>
+					<costList>
+					  <Plasteel>40</Plasteel>
+					  <VMEu_CarbonFiber>20</VMEu_CarbonFiber>
+					  <ComponentSpacer>3</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+			
+			<!-- ##### Patch Power Armors Added By Royalty ##### -->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Royalty</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<operations>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ThingDef [defName = "Apparel_ArmorReconPrestige"]/costList</xpath>
+							<value>
+								<costList>
+								  <Gold>9</Gold>
+								  <Plasteel>60</Plasteel>
+								  <VMEu_CarbonFiber>40</VMEu_CarbonFiber>
+								</costList>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ThingDef [defName = "Apparel_ArmorHelmetReconPrestige"]/costList</xpath>
+							<value>
+								<costList>
+								  <Gold>4</Gold>
+								  <Plasteel>20</Plasteel>
+								  <VMEu_CarbonFiber>20</VMEu_CarbonFiber>
+								</costList>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ThingDef [defName = "Apparel_ArmorMarinePrestige"]/costList</xpath>
+							<value>
+								<costList>
+								  <Gold>10</Gold>
+								  <Plasteel>70</Plasteel>
+								  <VMEu_CarbonFiber>50</VMEu_CarbonFiber>
+								</costList>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ThingDef [defName = "Apparel_ArmorMarineHelmetPrestige"]/costList</xpath>
+							<value>
+								<costList>
+								  <Gold>5</Gold>
+								  <Plasteel>25</Plasteel>
+								  <VMEu_CarbonFiber>25</VMEu_CarbonFiber>
+								</costList>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ThingDef [@Name = "ApparelArmorCataphractBase"]/costList</xpath>
+							<value>
+								<costList>
+								  <ComponentSpacer>6</ComponentSpacer>
+								  <Plasteel>90</Plasteel>
+								  <VMEu_CarbonFiber>60</VMEu_CarbonFiber>
+								  <Uranium>50</Uranium>
+								</costList>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ThingDef [@Name = "ApparelArmorHelmetCataphractBase"]/costList</xpath>
+							<value>
+								<costList>
+								  <ComponentSpacer>1</ComponentSpacer>
+								  <Plasteel>25</Plasteel>
+								  <VMEu_CarbonFiber>25</VMEu_CarbonFiber>
+								</costList>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ThingDef [defName = "Apparel_ArmorCataphractPrestige"]/costList</xpath>
+							<value>
+								<costList>
+								  <Gold>18</Gold>
+								  <Plasteel>100</Plasteel>
+								  <VMEu_CarbonFiber>90</VMEu_CarbonFiber>
+								</costList>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ThingDef [defName = "Apparel_ArmorHelmetCataphractPrestige"]/costList</xpath>
+							<value>
+								<costList>
+								  <Gold>9</Gold>
+								  <Plasteel>50</Plasteel>
+								  <VMEu_CarbonFiber>25</VMEu_CarbonFiber>
+								</costList>
+							</value>
+						</li>
+						
+						<!-- === Variants === -->
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ThingDef [defName = "Apparel_ArmorLocust"]/costList</xpath>
+							<value>
+								<costList>
+								  <Plasteel>70</Plasteel>
+								  <VMEu_CarbonFiber>50</VMEu_CarbonFiber>
+								  <ComponentIndustrial>3</ComponentIndustrial>
+								  <Chemfuel>100</Chemfuel>
+								</costList>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+			
+		</operations>
+	</match>
+</Operation>
+
+
+
+</Patch>

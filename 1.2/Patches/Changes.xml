@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationSequence">
+	<operations>
+		<!-- ##### Buff Plasteel ##### -->
+		<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "Plasteel"]/statBases</xpath>
+			<value>
+				<statBases>
+				  <MarketValue>13</MarketValue>
+				  <Mass>0.2</Mass>
+				  <StuffPower_Armor_Sharp>1.5</StuffPower_Armor_Sharp>
+				  <StuffPower_Armor_Blunt>0.68</StuffPower_Armor_Blunt>
+				  <StuffPower_Armor_Heat>0.8</StuffPower_Armor_Heat>
+				  <StuffPower_Insulation_Cold>4</StuffPower_Insulation_Cold>
+				  <StuffPower_Insulation_Heat>2</StuffPower_Insulation_Heat>
+				  <SharpDamageMultiplier>1.32</SharpDamageMultiplier>
+				  <BluntDamageMultiplier>1.15</BluntDamageMultiplier>
+				</statBases>
+			</value>
+		</li>
+		<li Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef [defName = "Plasteel"]/stuffProps/statFactors</xpath>
+			<value>
+				<statFactors>
+					<MaxHitPoints>2.9</MaxHitPoints>
+					<Beauty>1</Beauty>
+					<Flammability>0</Flammability>
+					<WorkToMake>2.2</WorkToMake>
+					<WorkToBuild>2.2</WorkToBuild>
+					<MeleeWeapon_CooldownMultiplier>0.75</MeleeWeapon_CooldownMultiplier>
+				</statFactors>
+			</value>
+		</li>
+	</operations>
+</Operation>
+
+</Patch>

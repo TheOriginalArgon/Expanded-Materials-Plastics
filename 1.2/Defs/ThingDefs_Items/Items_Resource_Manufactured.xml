@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- Nylon Roll -->
+<ThingDef ParentName="ResourceBase">
+    <defName>VMEu_NylonRoll</defName>
+    <label>plastic foil</label>
+    <description>A thin foil made from cheap plastic, it is very useful in the wrapping of different products, mostly foods.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/VMEu_NylonRoll</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <stackLimit>150</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>2</MarketValue>
+      <Mass>0.03</Mass>
+      <Flammability>1.2</Flammability>
+      <DeteriorationRate>1.2</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+  
+ <!-- Polymer Medicine -->
+ <ThingDef ParentName="MedicineBase">
+    <defName>VMEu_SynthMedicine</defName>
+    <label>synthetic medicine</label>
+    <description>A kit of industrial-era synthetic medical equipment. It contains different synthetic supplies and small body implants.\n\nWhile this medicine is not as good as common industrial medicine, it has the adventage of being easy to produce and quick to use.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Medicine/VMEu_SynthMedicine</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MarketValue>18</MarketValue>
+      <Mass>0.42</Mass>
+      <Flammability>0.7</Flammability>
+      <MedicalPotency>0.80</MedicalPotency>
+      <MedicalQualityMax>0.90</MedicalQualityMax>
+      <DeteriorationRate>2</DeteriorationRate>
+      <WorkToMake>500</WorkToMake>
+    </statBases>
+    <costList>
+      <VMEu_Pronitamine>1</VMEu_Pronitamine>
+      <Cloth>3</Cloth>
+      <VMEu_PlasticPellets_TierOne>5</VMEu_PlasticPellets_TierOne>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+      <workSkill>Intellectual</workSkill>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <researchPrerequisite>VMEu_PlasticManufacture</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+        <Intellectual>4</Intellectual>
+      </skillRequirements>
+    </recipeMaker>
+  </ThingDef>
+
+
+<!-- ##### Neutroamine Variations ##### -->
+<!-- Pronitamine -->
+<ThingDef ParentName="ResourceBase">
+    <defName>VMEu_Pronitamine</defName>
+    <label>pronitamine</label>
+    <description>A synthetic version of neutroamine with a higher molecular resistance. While it is useless on its own, many materials require pronitamine as an ingredient.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/VMEu_Pronitamine</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.90</drawSize>
+    </graphicData>
+    <stackLimit>150</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>7</MarketValue>
+      <Mass>0.02</Mass>
+      <Flammability>0.7</Flammability>
+      <DeteriorationRate>1.0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>VMEu_ChemicalsThingCategory</li>
+    </thingCategories>
+  </ThingDef>
+  
+  <!-- Xenotamine -->
+	<ThingDef ParentName="ResourceBase">
+	<defName>VMEu_Xenotamine</defName>
+	<label>xenotamine</label>
+	<description>A synthetic version of neutroamine combined with distilled animal matter and reactive metals. While it is useless on its own, many materials require xenotamine as an ingredient.\n\nDespite being chemically a variation of neutroamine, this complex chemical is created using dark oil directly.</description>
+	<graphicData>
+	  <texPath>Things/Item/Resource/VMEu_Xenotamine</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <drawSize>0.90</drawSize>
+	</graphicData>
+	<stackLimit>150</stackLimit>
+	<healthAffectsPrice>false</healthAffectsPrice>
+	<statBases>
+	  <MaxHitPoints>50</MaxHitPoints>
+	  <MarketValue>7.5</MarketValue>
+	  <Mass>0.02</Mass>
+	  <Flammability>0.9</Flammability>
+	  <DeteriorationRate>1.2</DeteriorationRate>
+	</statBases>
+	<thingCategories>
+	  <li>VMEu_ChemicalsThingCategory</li>
+	</thingCategories>
+  </ThingDef>
+  
+  <!-- ##### CHEMICALS ##### -->
+  
+  <!-- Antigrain Mix -->
+  <ThingDef ParentName="ResourceBase">
+	<defName>VMEu_AntigrainMix</defName>
+	<label>antigrain mix</label>
+	<description>A synthetic unstable chemical mix enclosed in a capsule. This products is dangerous but serves the purpose of crafting antigrain warheads.</description>
+	<graphicData>
+	  <texPath>Things/Item/Resource/VMEu_AntigrainMix</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	</graphicData>
+	<tickerType>Normal</tickerType>
+	<stackLimit>150</stackLimit>
+	<healthAffectsPrice>true</healthAffectsPrice>
+	<statBases>
+	  <MaxHitPoints>150</MaxHitPoints>
+	  <MarketValue>25</MarketValue>
+	  <Mass>0.1</Mass>
+	  <Flammability>2</Flammability>
+	  <DeteriorationRate>0.8</DeteriorationRate>
+	</statBases>
+	<comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>9.9</explosiveRadius>
+        <explosiveDamageType>BombSuper</explosiveDamageType>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <chanceToStartFire>0.22</chanceToStartFire>
+        <damageFalloff>true</damageFalloff>
+        <explosionEffect>GiantExplosion</explosionEffect>
+        <explosionSound>Explosion_GiantBomb</explosionSound>
+        <wickTicks>60~120</wickTicks>
+      </li>
+    </comps>
+	<thingCategories>
+	  <li>VMEu_ChemicalsThingCategory</li>
+	</thingCategories>
+  </ThingDef>
+
+  
+</Defs>

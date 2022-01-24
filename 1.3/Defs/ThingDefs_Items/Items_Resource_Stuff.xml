@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<!-- ##### MATERIALS ##### -->
+
+<!-- Asphalt Mix -->
+<ThingDef ParentName="ResourceBase">
+    <defName>VMEu_AsphaltMix</defName>
+    <label>asphalt mix</label>
+    <description>Grounded rock mixed at high temperatures with highly damaged dark oil, which is thick and flammable. Asphalt is perfect for great roads, and it is not as ugly as concrete.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/VMEu_AsphaltMix</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Standard_Pickup</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <statBases>
+      <MarketValue>0.9</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+  </ThingDef>
+  
+  <!-- Polyester Cloth -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>VMEu_PolyesterCloth</defName>
+    <label>polyester cloth</label>
+    <description>Polyester cloth woven from synthetic fibers.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/VMEu_PolyesterCloth</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
+      <color>(213, 217, 219)</color>
+    </graphicData>
+    <statBases>
+      <StuffPower_Armor_Sharp>0.46</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.12</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0.22</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>20</StuffPower_Insulation_Heat>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>1.5</MarketValue>
+      <Mass>0.023</Mass>
+      <Flammability>1.4</Flammability>
+      <DeteriorationRate>3</DeteriorationRate>
+    </statBases>
+    <burnableByRecipe>true</burnableByRecipe>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <minRewardCount>30</minRewardCount>
+    <stuffProps>
+      <stuffAdjective>polyester</stuffAdjective>
+      <statFactors>
+        <Flammability>1.4</Flammability>
+		<MaxHitPoints>1.12</MaxHitPoints>
+        <Beauty>1.1</Beauty>
+      </statFactors>
+      <categories>
+        <li>Fabric</li>
+      </categories>
+      <color>(213, 217, 219)</color>
+      <commonality>0.9</commonality>
+      <allowColorGenerators>true</allowColorGenerators>
+    </stuffProps>
+    <thingCategories>
+      <li>Textiles</li>
+    </thingCategories>
+    <comps>
+      <li>
+        <compClass>CompColorable</compClass>
+      </li>
+    </comps>
+    <colorGeneratorInTraderStock Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>5</weight>
+          <only>(0.33,0.33,0.33,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <min>(0.3,0.3,0.3,1)</min>
+          <max>(0.9,0.9,0.9,1)</max>
+        </li>
+        <li>
+          <weight>5</weight>
+          <only>(0.9,0.9,0.9,1)</only>
+        </li>
+      </options>
+    </colorGeneratorInTraderStock>
+  </ThingDef>
+  
+  <!-- Synthleather -->
+  <ThingDef Abstract="True" Name="SynthleatherBase" ParentName="ResourceBase">
+    <description>A synthetic weaved material made to replicate leather, it takes time to make, and while it is not so physically resistant and though as other non-synthetic leathers, this one has great isulation capacities and can be made in a variety of colors.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/VMEu_Synthleather</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <StuffPower_Armor_Sharp>0.7</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.18</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>1.1</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>18</StuffPower_Insulation_Heat>
+      <MaxHitPoints>75</MaxHitPoints>
+      <MarketValue>2.6</MarketValue>
+      <Mass>0.03</Mass>
+      <Flammability>0.9</Flammability>
+      <DeteriorationRate>1</DeteriorationRate>
+    </statBases>
+    <burnableByRecipe>true</burnableByRecipe>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <minRewardCount>30</minRewardCount>
+    <stuffProps>
+      <stuffAdjective>synthetic leather</stuffAdjective>
+      <statFactors>
+        <Flammability>1.4</Flammability>
+		<MaxHitPoints>1.12</MaxHitPoints>
+        <Beauty>1.1</Beauty>
+      </statFactors>
+      <categories>
+        <li>Leathery</li>
+      </categories>
+      <commonality>0.3</commonality>
+    </stuffProps>
+    <thingCategories>
+      <li>Leathers</li>
+    </thingCategories>
+  </ThingDef>
+  
+  <ThingDef ParentName="SynthleatherBase">
+    <defName>VMEu_Synthleather_Black</defName>
+    <label>black synthetic leather</label>
+    <graphicData>
+      <color>(66, 66, 66)</color>
+    </graphicData>
+    <stuffProps>
+      <color>(66, 66, 66)</color>
+    </stuffProps>
+  </ThingDef>
+  
+  <ThingDef ParentName="SynthleatherBase">
+    <defName>VMEu_Synthleather_Brown</defName>
+    <label>brown synthetic leather</label>
+    <graphicData>
+      <color>(94, 81, 66)</color>
+    </graphicData>
+    <stuffProps>
+      <color>(94, 81, 66)</color>
+    </stuffProps>
+  </ThingDef>
+  
+  <ThingDef ParentName="SynthleatherBase">
+    <defName>VMEu_Synthleather_Beige</defName>
+    <label>beige synthetic leather</label>
+    <graphicData>
+      <color>(168, 150, 128)</color>
+    </graphicData>
+    <stuffProps>
+      <color>(168, 150, 128)</color>
+    </stuffProps>
+  </ThingDef>
+  
+  <ThingDef ParentName="SynthleatherBase">
+    <defName>VMEu_Synthleather_Crimson</defName>
+    <label>crimson synthetic leather</label>
+    <graphicData>
+      <color>(117, 45, 63)</color>
+    </graphicData>
+    <stuffProps>
+      <color>(117, 45, 63)</color>
+    </stuffProps>
+  </ThingDef>
+
+
+
+<!-- ##### PLASTICS ##### -->
+<!-- Cheap Plastic -->
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>VMEu_LiquidPlastic_TierOne</defName>
+		<label>liquid plastic</label>
+		<description>Hot, liquid plastic base made from dark oil and neutroamine. The simplest and cheapest of all dark oil-based materials.\n\nMust be processed in a plastic processor in order to turn it into usable materials.</description>
+		<graphicData>
+			<texPath>Things/Item/VMEu_LiquidCheapPlastic</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<rotatable>false</rotatable>
+		<stackLimit>75</stackLimit>
+		<thingCategories>
+			<li>VMEu_LiquidPlasticThingCategory</li>
+		</thingCategories>
+		<statBases>
+			<DeteriorationRate>1.0</DeteriorationRate>
+			<MarketValue>0.2</MarketValue>
+			<Mass>0.3</Mass>
+			<Flammability>0.4</Flammability>
+			<MaxHitPoints>60</MaxHitPoints>
+		</statBases>
+	</ThingDef>
+	
+  <ThingDef ParentName="ResourceBase">
+    <defName>VMEu_PlasticPellets_TierOne</defName>
+    <label>cheap plastic pellets</label>
+    <description>Industrial class plastic, used for cheap furniture and industrial implementations.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/VMEu_CheapPlastic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>Wood_Drop</soundInteract>
+    <soundDrop>Wood_Drop</soundDrop>
+    <useHitPoints>true</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+	  <MarketValue>0.9</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>0.18</Mass>
+	  <Flammability>1.0</Flammability>
+      <DeteriorationRate>0.5</DeteriorationRate>
+      <StuffPower_Armor_Sharp>0.2</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.4</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0.40</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>8</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>1</StuffPower_Insulation_Heat>
+      <SharpDamageMultiplier>0.12</SharpDamageMultiplier>
+      <BluntDamageMultiplier>0.85</BluntDamageMultiplier>
+    </statBases>
+    <thingCategories>
+      <li>VMEu_PlasticThingCategory</li>
+    </thingCategories>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>true</smeltable>
+    <stuffProps>
+	  <stuffAdjective>plastic</stuffAdjective>
+      <categories>
+        <li>VMEu_PlasticStuffCategory</li>
+      </categories>
+	  <allowColorGenerators>true</allowColorGenerators>
+      <commonality>0.01</commonality>
+      <constructEffect>ConstructMetal</constructEffect>
+      <color>(228, 239, 242)</color>
+      <soundImpactStuff>BulletImpact_Wood</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Wood</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Wood</soundMeleeHitBlunt>
+      <statFactors>
+        <MaxHitPoints>0.52</MaxHitPoints>
+        <Beauty>1</Beauty>
+        <Flammability>1</Flammability>
+        <WorkToMake>0.4</WorkToMake>
+        <WorkToBuild>0.4</WorkToBuild>
+        <DoorOpenSpeed>0.9</DoorOpenSpeed>
+      </statFactors>
+    </stuffProps>
+	<comps>
+      <li>
+        <compClass>CompColorable</compClass>
+      </li>
+    </comps>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+  </ThingDef>
+  
+  <ThingDef ParentName="ResourceBase">
+    <defName>VMEu_PlasticPlanks_TierOne</defName>
+    <label>cheap plastic planks</label>
+    <description>Industrial class plastic shaped into planks, commonly used to build decorative walls, floors and other structures whose main purpose is to look nice.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/VMEu_PlasticPlanks</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Wood_Drop</soundInteract>
+    <soundDrop>Wood_Drop</soundDrop>
+    <useHitPoints>true</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+	  <MarketValue>0.9</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>0.2</Mass>
+	  <Flammability>1.0</Flammability>
+      <DeteriorationRate>0.5</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>VMEu_PlasticThingCategory</li>
+    </thingCategories>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>true</smeltable>
+    <stuffProps>
+	  <stuffAdjective>plastic</stuffAdjective>
+      <categories>
+        <li>VMEu_PlasticPlanksStuffCategory</li>
+      </categories>
+	  <allowColorGenerators>true</allowColorGenerators>
+      <commonality>0.05</commonality>
+      <constructEffect>ConstructWood</constructEffect>
+	  <appearance>Plastic</appearance>
+      <color>(228, 239, 242)</color>
+      <soundImpactStuff>BulletImpact_Wood</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Wood</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Wood</soundMeleeHitBlunt>
+      <statFactors>
+        <MaxHitPoints>0.52</MaxHitPoints>
+        <Beauty>1</Beauty>
+        <Flammability>1</Flammability>
+        <WorkToMake>0.4</WorkToMake>
+        <WorkToBuild>0.4</WorkToBuild>
+        <DoorOpenSpeed>0.9</DoorOpenSpeed>
+      </statFactors>
+    </stuffProps>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+  </ThingDef>
+  
+  <ThingDef ParentName="ResourceBase">
+		<defName>VMEu_LiquidPlastic_TierTwo</defName>
+		<label>liquid polymer plastic</label>
+		<description>Hot, liquid plastic base made from dark oil and pronitamine. An advanced polymer material used widely in great industries.\n\nMust be processed in a plastic processor in order to turn it into usable materials.</description>
+		<graphicData>
+			<texPath>Things/Item/VMEu_LiquidPolymerPlastic</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<rotatable>false</rotatable>
+		<stackLimit>75</stackLimit>
+		<thingCategories>
+			<li>VMEu_LiquidPlasticThingCategory</li>
+		</thingCategories>
+		<statBases>
+			<DeteriorationRate>1.0</DeteriorationRate>
+			<MarketValue>0.2</MarketValue>
+			<Mass>0.3</Mass>
+			<Flammability>0.4</Flammability>
+			<MaxHitPoints>60</MaxHitPoints>
+		</statBases>
+	</ThingDef>
+  
+  <ThingDef ParentName="ResourceBase">
+    <defName>VMEu_PlasticPellets_TierTwo</defName>
+    <label>polymer plastic pellets</label>
+    <description>Advanced industrial polymer class plastic, used for advanced industrial implementations. Due to the chemical properties of pronitamine, this materials excels at replacing other industrial class materials, mainly steel.\n\nOther materials could not be replaced at all by this polymer, resulting in products not as durable as the ones made with the original material, but far better than nothing.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/VMEu_PolymerPlastic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Wood_Drop</soundInteract>
+    <soundDrop>Wood_Drop</soundDrop>
+    <useHitPoints>true</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+	  <MarketValue>1.1</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>0.18</Mass>
+	  <Flammability>1.0</Flammability>
+      <DeteriorationRate>0.3</DeteriorationRate>
+      <StuffPower_Armor_Sharp>0.6</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.5</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0.60</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>9</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>2</StuffPower_Insulation_Heat>
+      <SharpDamageMultiplier>0.9</SharpDamageMultiplier>
+      <BluntDamageMultiplier>1</BluntDamageMultiplier>
+    </statBases>
+    <thingCategories>
+      <li>VMEu_PlasticThingCategory</li>
+    </thingCategories>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>true</smeltable>
+    <stuffProps>
+	  <stuffAdjective>plastic</stuffAdjective>
+      <categories>
+        <li>VMEu_PlasticStuffCategory</li>
+      </categories>
+      <commonality>0.05</commonality>
+      <constructEffect>ConstructMetal</constructEffect>
+      <color>(220, 226, 242)</color>
+      <soundImpactStuff>BulletImpact_Wood</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Wood</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Wood</soundMeleeHitBlunt>
+      <statFactors>
+        <MaxHitPoints>0.85</MaxHitPoints>
+        <Beauty>1</Beauty>
+        <Flammability>1</Flammability>
+        <WorkToMake>0.4</WorkToMake>
+        <WorkToBuild>0.4</WorkToBuild>
+        <DoorOpenSpeed>0.9</DoorOpenSpeed>
+      </statFactors>
+    </stuffProps>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,221 @@
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>Ultratech: Altered Carbon Remastered</li>
+    </mods>
+    <match Class="PatchOperationFindMod">
+        <mods>
+            <li>Expanded Materials - Metals</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <!-- Sleeve Incubator -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveIncubator"]/costList/Steel</xpath>
+                    <value>
+                        <Steel>120</Steel>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveIncubator"]/costList/Plasteel</xpath>
+                    <value>
+                        <Plasteel>90</Plasteel>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveIncubator"]/costList/VMEu_Titanium</xpath>
+                    <value>
+                        <VMEu_CarbonFiber>60</VMEu_CarbonFiber>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveIncubator"]/costList/VMEu_StainlessSteel</xpath>
+                    <value>
+                        <VMEu_StainlessSteel>50</VMEu_StainlessSteel>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveIncubator"]/costList</xpath>
+                    <value>
+                        <VMEu_PlasticPellets_TierTwo>80</VMEu_PlasticPellets_TierTwo>
+                    </value>
+                </li>
+
+                <!-- Organ Incubator -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_OrganIncubator"]/costList/Steel</xpath>
+                    <value>
+                        <Steel>20</Steel>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_OrganIncubator"]/costList/VMEu_StainlessSteel</xpath>
+                    <value>
+                        <VMEu_StainlessSteel>15</VMEu_StainlessSteel>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef [defName = "UT_OrganIncubator"]/costList</xpath>
+                    <value>
+                        <VMEu_PlasticPellets_TierTwo>40</VMEu_PlasticPellets_TierTwo>
+                    </value>
+                </li>
+
+                <!-- Sleeve Casket -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveCasket"]/costList/Steel</xpath>
+                    <value>
+                        <Steel>35</Steel>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveCasket"]/costList/VMEu_StainlessSteel</xpath>
+                    <value>
+                        <VMEu_StainlessSteel>10</VMEu_StainlessSteel>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveCasket"]/costList</xpath>
+                    <value>
+                        <VMEu_PlasticPellets_TierTwo>35</VMEu_PlasticPellets_TierTwo>
+                    </value>
+                </li>
+
+                <!-- Cortical Stack Storage -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_CorticalStackStorage"]/costList/Steel</xpath>
+                    <value>
+                        <Steel>110</Steel>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_CorticalStackStorage"]/costList/VMEu_StainlessSteel</xpath>
+                    <value>
+                        <VMEu_StainlessSteel>75</VMEu_StainlessSteel>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_CorticalStackStorage"]/costList/Plasteel</xpath>
+                    <value>
+                        <Plasteel>70</Plasteel>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_CorticalStackStorage"]/costList/VMEu_Titanium</xpath>
+                    <value>
+                        <VMEu_CarbonFiber>60</VMEu_CarbonFiber>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef [defName = "UT_CorticalStackStorage"]/costList</xpath>
+                    <value>
+                        <VMEu_PlasticPellets_TierTwo>65</VMEu_PlasticPellets_TierTwo>
+                    </value>
+                </li>
+
+                <!-- Decryption Bench -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_DecryptionBench"]/costList/Steel</xpath>
+                    <value>
+                        <Steel>90</Steel>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_DecryptionBench"]/costList/VMEu_StainlessSteel</xpath>
+                    <value>
+                        <VMEu_StainlessSteel>50</VMEu_StainlessSteel>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef [defName = "UT_DecryptionBench"]/costList</xpath>
+                    <value>
+                        <VMEu_PlasticPellets_TierTwo>60</VMEu_PlasticPellets_TierTwo>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+
+        <nomatch Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <!-- Sleeve Incubator -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveIncubator"]/costList/Steel</xpath>
+                    <value>
+                        <Steel>180</Steel>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveIncubator"]/costList</xpath>
+                    <value>
+                        <VMEu_PlasticPellets_TierTwo>70</VMEu_PlasticPellets_TierTwo>
+                    </value>
+                </li>
+
+                <!-- Organ Incubator -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_OrganIncubator"]/costList/Steel</xpath>
+                    <value>
+                        <Steel>55</Steel>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef [defName = "UT_OrganIncubator"]/costList</xpath>
+                    <value>
+                        <VMEu_PlasticPellets_TierTwo>20</VMEu_PlasticPellets_TierTwo>
+                    </value>
+                </li>
+
+                <!-- Sleeve Casket -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveCasket"]/costList/Steel</xpath>
+                    <value>
+                        <Steel>50</Steel>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef [defName = "UT_SleeveCasket"]/costList</xpath>
+                    <value>
+                        <VMEu_PlasticPellets_TierTwo>30</VMEu_PlasticPellets_TierTwo>
+                    </value>
+                </li>
+
+                <!-- Cortical Stack Storage -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_CorticalStackStorage"]/costList/Steel</xpath>
+                    <value>
+                        <Steel>180</Steel>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef [defName = "UT_CorticalStackStorage"]/costList</xpath>
+                    <value>
+                        <VMEu_PlasticPellets_TierTwo>70</VMEu_PlasticPellets_TierTwo>
+                    </value>
+                </li>
+
+                <!-- Decryption Bench -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef [defName = "UT_DecryptionBench"]/costList/Steel</xpath>
+                    <value>
+                        <Steel>120</Steel>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef [defName = "UT_DecryptionBench"]/costList</xpath>
+                    <value>
+                        <VMEu_PlasticPellets_TierTwo>80</VMEu_PlasticPellets_TierTwo>
+                    </value>
+                </li>
+
+            </operations>
+        </nomatch>
+    </match>
+</Operation>
+
+</Patch>

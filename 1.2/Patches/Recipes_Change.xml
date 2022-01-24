@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			
+		
+		
+		
+			<!-- Steel and plastic for some recipes -->
+			<!-- ##### VANILLA WEAPONS ##### -->
+			
+			<!-- Lower Tier Needs Plastic Pellets -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_ChainShotgun"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>40</Steel>
+					  <VMEu_PlasticPellets_TierTwo>30</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>5</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_HeavySMG"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>40</Steel>
+					  <VMEu_PlasticPellets_TierTwo>35</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>4</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_LMG"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>40</Steel>
+					  <VMEu_PlasticPellets_TierTwo>35</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>5</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_AssaultRifle"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>30</Steel>
+					  <VMEu_PlasticPellets_TierTwo>30</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>7</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_SniperRifle"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>30</Steel>
+					  <VMEu_PlasticPellets_TierTwo>30</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>8</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_Minigun"]/costList</xpath>
+				<value>
+					<costList>
+					  <Steel>100</Steel>
+					  <VMEu_PlasticPellets_TierTwo>60</VMEu_PlasticPellets_TierTwo>
+					  <ComponentIndustrial>20</ComponentIndustrial>
+					</costList>
+				</value>
+			</li>
+			
+			
+			<!-- ##### VANILLA BIONICS ##### -->
+			
+			<!-- Bionics -->
+			
+			
+		</operations>
+</Operation>
+
+
+		
+</Patch>
