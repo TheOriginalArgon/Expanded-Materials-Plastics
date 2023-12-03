@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<!-- Rimeffect: Core -->
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>Rim-Effect: Core</li>
+    </mods>
+	
+	<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationFindMod"> <!-- Check for EM - Metals to apply a patch using Carbon Fiber -->
+				<mods>
+					<li>Expanded Materials - Metals</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationSequence"> <!-- Patch alliance weapons to use Carbon Fiber -->
+							<success>Always</success>
+							<operations>
+								<li Class="PatchOperationTest">
+									<xpath>Defs/ThingDef[@ParentName = "BaseHumanMakeableGun" and label[contains(text(), "alliance")]]/costList/Plasteel</xpath>
+									<success>Normal</success>
+								</li>
+								<li Class="MaterialPatchingUtility.PatchOperationBalanceMaterial">
+									<xpath>Defs/ThingDef[@ParentName = "BaseHumanMakeableGun" and label[contains(text(), "alliance")]]/costList/Plasteel</xpath>
+									<percentage>30</percentage>
+									<material>VMEu_CarbonFiber</material>
+								</li>
+							</operations>
+						</li>
+						
+						<!-- Armor -->
+						<li Class="PatchOperationSequence"> <!-- Patch alliance armor to use Carbon Fiber -->
+							<success>Always</success>
+							<operations>
+								<li Class="PatchOperationTest">
+									<xpath>Defs/ThingDef[@ParentName = "ArmorMachineableBase" and label[contains(text(), "alliance")]]/costList/Plasteel</xpath>
+									<success>Normal</success>
+								</li>
+								<li Class="MaterialPatchingUtility.PatchOperationBalanceMaterial">
+									<xpath>Defs/ThingDef[@ParentName = "ArmorMachineableBase" and label[contains(text(), "alliance")]]/costList/Plasteel</xpath>
+									<percentage>40</percentage>
+									<material>VMEu_CarbonFiber</material>
+								</li>
+							</operations>
+						</li>
+					</operations>
+				</match>
+			</li>
+			
+			<li Class="ExpandedMaterials_Plastics.VMEu_PatchOperationAdjustPawnMoney">
+				<xpath>/Defs/PawnKindDef [@ParentName = "AllianceBase"]/weaponMoney</xpath>
+				<amount>300</amount>
+			</li>
+			<li Class="ExpandedMaterials_Plastics.VMEu_PatchOperationAdjustPawnMoney">
+				<xpath>/Defs/PawnKindDef [defName = "RE_Spectre"]/weaponMoney</xpath>
+				<amount>300</amount>
+			</li>
+			
+			<!-- Patch floor materials -->
+			<li Class="PatchOperationReplace"> <!-- Rubber Floor -->
+				<xpath>/Defs/TerrainDef [defName = "RE_ColonialRubberTile"]/costList</xpath>
+				<value>
+					<costList>
+						<VMEu_PlasticPellets_TierTwo>3</VMEu_PlasticPellets_TierTwo>
+					</costList>
+				</value>
+			</li>
+			
+		</operations>
+	</match>
+	
+</Operation>
+
+</Patch>

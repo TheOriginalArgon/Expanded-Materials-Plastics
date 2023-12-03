@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			
+			<!-- Chain Shotgun -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_ChainShotgun"]/costList/Steel</xpath>
+				<value>
+					<Steel>40</Steel>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef [defName = "Gun_ChainShotgun"]/costList</xpath>
+				<value>
+					<VMEu_PlasticPellets_TierTwo>30</VMEu_PlasticPellets_TierTwo>
+				</value>
+			</li>
+
+			<!-- Heavy SMG -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_HeavySMG"]/costList/Steel</xpath>
+				<value>
+					<Steel>40</Steel>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef [defName = "Gun_HeavySMG"]/costList</xpath>
+				<value>
+					<VMEu_PlasticPellets_TierTwo>35</VMEu_PlasticPellets_TierTwo>
+				</value>
+			</li>
+
+			<!-- LMG -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_LMG"]/costList/Steel</xpath>
+				<value>
+					<Steel>40</Steel>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef [defName = "Gun_LMG"]/costList</xpath>
+				<value>
+					<VMEu_PlasticPellets_TierTwo>35</VMEu_PlasticPellets_TierTwo>
+				</value>
+			</li>
+
+			<!-- Assault Rifle -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_AssaultRifle"]/costList/Steel</xpath>
+				<value>
+					<Steel>30</Steel>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef [defName = "Gun_AssaultRifle"]/costList</xpath>
+				<value>
+					<VMEu_PlasticPellets_TierTwo>30</VMEu_PlasticPellets_TierTwo>
+				</value>
+			</li>
+
+			<!-- Sniper Rifle -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_SniperRifle"]/costList/Steel</xpath>
+				<value>
+					<Steel>30</Steel>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef [defName = "Gun_SniperRifle"]/costList</xpath>
+				<value>
+					<VMEu_PlasticPellets_TierTwo>30</VMEu_PlasticPellets_TierTwo>
+				</value>
+			</li>
+
+			<!-- Minigun -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef [defName = "Gun_Minigun"]/costList/Steel</xpath>
+				<value>
+					<Steel>100</Steel>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef [defName = "Gun_Minigun"]/costList</xpath>
+				<value>
+					<VMEu_PlasticPellets_TierTwo>60</VMEu_PlasticPellets_TierTwo>
+				</value>
+			</li>
+			
+		</operations>
+</Operation>
+
+<!-- Remove Stainless Steel cost when Expanded Materials - Metals is detected -->
+<Operation Class="PatchOperationFindMod">
+	<mods>
+		<li>Expanded Materials - Metals</li>
+	</mods>
+	<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/ThingDef [defName = "Gun_ChainShotgun" or defName = "Gun_AssaultRifle" or defName = "Gun_HeavySMG" or defName = "Gun_LMG" or defName = "Gun_Minigun" or defName = "Gun_SniperRifle"]/costList/VMEu_StainlessSteel</xpath>
+			</li>
+		</operations>
+	</match>
+</Operation>
+
+
+		
+</Patch>

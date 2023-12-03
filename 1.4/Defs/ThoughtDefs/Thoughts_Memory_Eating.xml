@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>VMEu_ConsumedSnacks</defName>
+    <durationDays>0.85</durationDays>
+    <stages>
+      <li>
+        <label>consumed snacks</label>
+        <description>Those were some good snacks.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

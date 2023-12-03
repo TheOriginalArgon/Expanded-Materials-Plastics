@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <TraderKindDef>
+    <defName>VMEu_Orbital_OilTrader</defName>
+    <label>oil trader</label>
+    <orbital>true</orbital>
+    <stockGenerators>
+      
+      <!-- Resources -->
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Silver</thingDef>
+        <countRange>2000~4000</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>VMEu_DarkOil</thingDef>
+        <countRange>200~600</countRange>
+      </li>
+
+      <!-- Buying -->
+      <li Class="StockGenerator_BuyExpensiveSimple" />
+      
+    </stockGenerators>
+  </TraderKindDef>
+  
+</Defs>

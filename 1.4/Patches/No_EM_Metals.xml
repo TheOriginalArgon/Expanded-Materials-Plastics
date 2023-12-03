@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>Expanded Materials - Metals</li>
+    </mods>
+	<nomatch Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<!-- Add the missing values for Glitterworld Medicine (This is added here because the original ThingDef does not have these) -->
+			<!-- Glitterworld Medicine Now Craftable -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef [defName = "MedicineUltratech"]</xpath>
+				<value>
+					<recipeMaker>
+					  <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+					  <workSkill>Intellectual</workSkill>
+					  <recipeUsers>
+						<li>FabricationBench</li>
+					  </recipeUsers>
+					  <researchPrerequisite>VMEu_GlitterworldMedicine</researchPrerequisite>
+					  <skillRequirements>
+						<Crafting>8</Crafting>
+						<Intellectual>8</Intellectual>
+					  </skillRequirements>
+					</recipeMaker>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef [defName = "MedicineUltratech"]</xpath>
+				<value>
+					<costList>
+					  <Plasteel>10</Plasteel>
+					  <VMEu_Pronitamine>15</VMEu_Pronitamine>
+					  <ComponentSpacer>2</ComponentSpacer>
+					</costList>
+				</value>
+			</li>
+		
+			<!-- ##### Add Dark Oil Things ##### -->
+			<li Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<ThingDef ParentName="ResourceBase">
+				<defName>VMEu_Fossil</defName>
+				<label>fossil</label>
+				<description>Animal matter turned into stone by time, extremely hard. Many neolithic civilizations use them for making weapons, while more advanced civilizations use them as decoration due to they beauty.\n\nCan also be used for making chemfuel and obtaining many chemicals.</description>
+				<graphicData>
+				  <texPath>Things/Item/Resource/VMEu_Fossil</texPath>
+				  <graphicClass>Graphic_StackCount</graphicClass>
+				</graphicData>
+				<soundInteract>Metal_Drop</soundInteract>
+				<soundDrop>Metal_Drop</soundDrop>
+				<statBases>
+				  <MarketValue>6</MarketValue>
+				  <Mass>0.5</Mass>
+				  <StuffPower_Armor_Sharp>1</StuffPower_Armor_Sharp>
+				  <StuffPower_Armor_Blunt>0.75</StuffPower_Armor_Blunt>
+				  <StuffPower_Armor_Heat>0.68</StuffPower_Armor_Heat>
+				  <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+				  <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+				  <SharpDamageMultiplier>1</SharpDamageMultiplier>
+				  <BluntDamageMultiplier>1</BluntDamageMultiplier>
+				</statBases>
+				<useHitPoints>false</useHitPoints>
+				<healthAffectsPrice>false</healthAffectsPrice>
+				<thingCategories>
+				  <li>ResourcesRaw</li>
+				</thingCategories>
+				<deepCommonality>1.6</deepCommonality>
+				<deepCountPerPortion>11</deepCountPerPortion>
+				<deepLumpSizeRange>2~7</deepLumpSizeRange>
+				<burnableByRecipe>false</burnableByRecipe>
+				<smeltable>true</smeltable>
+				<stuffProps>
+				  <categories>
+					<li>Stony</li>
+				  </categories>
+				  <commonality>1.00</commonality>
+				  <constructEffect>ConstructMetal</constructEffect>
+				  <color>(176,146,100)</color>
+				  <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+				  <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+				  <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+				  <statFactors>
+					<MaxHitPoints>1</MaxHitPoints>
+					<Beauty>1.65</Beauty>
+					<Flammability>0.12</Flammability>
+				  </statFactors>
+				</stuffProps>
+				<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+			  </ThingDef>
+			</value>
+			</li>
+			<li Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<ThingDef ParentName="ResourceBase">
+					<defName>VMEu_DarkOil</defName>
+					<label>dark oil</label>
+					<description>A dark liquid product of the refining of fossils int chemfuel.\n\nThis basic oil is very valuable due to its multiple uses.</description>
+					<tickerType>Normal</tickerType>
+					<graphicData>
+					  <texPath>Things/Item/Resource/VMEu_DarkOil</texPath>
+					  <graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					<stackLimit>150</stackLimit>
+					<healthAffectsPrice>false</healthAffectsPrice>
+					<statBases>
+					  <MaxHitPoints>50</MaxHitPoints>
+					  <MarketValue>11</MarketValue>
+					  <Mass>0.05</Mass>
+					  <Flammability>2.0</Flammability>
+					  <DeteriorationRate>1.0</DeteriorationRate>
+					</statBases>
+					<thingCategories>
+					  <li>Manufactured</li>
+					</thingCategories>
+					<comps>
+					  <li Class="CompProperties_Explosive">
+						<explosiveRadius>0.95</explosiveRadius>
+						<explosiveDamageType>Flame</explosiveDamageType>
+						<explosiveExpandPerStackcount>0.037</explosiveExpandPerStackcount>
+						<startWickOnDamageTaken>
+						  <li>Flame</li>
+						</startWickOnDamageTaken>
+						<startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+						<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+						<preExplosionSpawnChance>1</preExplosionSpawnChance>
+						<wickTicks>70~150</wickTicks>
+					  </li>
+					</comps>
+				  </ThingDef>
+			</value>
+			</li>
+			<li Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<RecipeDef>
+					<defName>VMEu_MakeDarkOilFromFossil</defName>
+					<label>make dark oil from fossil</label>
+					<description>A long proces that implies cooking fossils using a slow evaporation system to obtain the purest dark oil.</description>
+					<jobString>Refining chemfuel from fossils.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>7500</workAmount>
+					<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+					<recipeUsers>
+						<li>BiofuelRefinery</li>
+					</recipeUsers>
+					<ingredients>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>VMEu_Fossil</li>
+						  </thingDefs>
+						</filter>
+						<count>10</count>
+					  </li>
+					</ingredients>
+					<fixedIngredientFilter>
+					  <thingDefs>
+						<li>VMEu_Fossil</li>
+					  </thingDefs>
+					</fixedIngredientFilter>
+					<products>
+					  <VMEu_DarkOil>85</VMEu_DarkOil>
+					</products>
+				  </RecipeDef>
+			</value>
+			</li>
+			
+			<!-- === Only if no Lite Version Loaded === -->
+			<li Class="PatchOperationFindMod">
+			<mods>
+				<li>[LITE]Expanded Materials - Metals</li>
+			</mods>
+			<nomatch Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs</xpath>
+				<value>
+					<!-- Plasteel -->
+					<RecipeDef>
+						<defName>VMEu_WeavePlasteel</defName>
+						<label>synthetize plasteel</label>
+						<description>Synthetize plasteel, an ultra-technological compound polymer material mostly used for the most refined and highest quality implementations around the rimworlds.</description>
+						<jobString>Weaving plasteel.</jobString>
+						<effectWorking>Smith</effectWorking>
+						<soundWorking>Recipe_Machining</soundWorking>
+						<workAmount>4000</workAmount>
+						<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+						<recipeUsers>
+							<li>VMEu_SynthWeaver</li>
+						</recipeUsers>
+						<ingredients>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>Neutroamine</li>
+							  </thingDefs>
+							</filter>
+							<count>30</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_Xenotamine</li>
+							  </thingDefs>
+							</filter>
+							<count>15</count>
+						  </li>
+						  <li>
+							<filter>
+							  <thingDefs>
+								<li>VMEu_DarkOil</li>
+							  </thingDefs>
+							</filter>
+							<count>10</count>
+						  </li>
+						</ingredients>
+						<fixedIngredientFilter>
+						  <thingDefs>
+							<li>Neutroamine</li>
+							<li>VMEu_Xenotamine</li>
+							<li>VMEu_DarkOil</li>
+						  </thingDefs>
+						</fixedIngredientFilter>
+						<products>
+						  <Plasteel>20</Plasteel>
+						</products>
+						<researchPrerequisite>VMEu_PlasteelWeaving</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</nomatch>
+			</li>
+		</operations>
+	</nomatch>
+</Operation>
+
+</Patch>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingCategoryDef>
+    <defName>VMEu_PlasticThingCategory</defName>
+    <label>Plastics</label>
+    <parent>Manufactured</parent>
+    <resourceReadoutRoot>true</resourceReadoutRoot>
+    <iconPath>Things/Item/Resource/VMEu_CheapPlastic</iconPath>
+  </ThingCategoryDef>
+  
+  <ThingCategoryDef>
+    <defName>VMEu_LiquidPlasticThingCategory</defName>
+    <label>Liquid plastics</label>
+    <parent>Manufactured</parent>
+    <resourceReadoutRoot>true</resourceReadoutRoot>
+    <iconPath>Things/Item/VMEu_LiquidCheapPlastic</iconPath>
+  </ThingCategoryDef>
+  
+  <ThingCategoryDef>
+    <defName>VMEu_ChemicalsThingCategory</defName>
+    <label>Chemicals</label>
+    <parent>Manufactured</parent>
+    <resourceReadoutRoot>true</resourceReadoutRoot>
+    <iconPath>Things/Item/Resource/VMEu_Pronitamine/VMEu_Pronitamine_b</iconPath>
+  </ThingCategoryDef>
+
+
+</Defs>
